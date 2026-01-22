@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rutvij's Portfolio</title>
+    <link rel="icon" href="img/siteicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <noscript>
+      <style>
+        #noscript-message {
+          display: block !important;
+          position: fixed;
+          top: 15%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: rgba(255, 0, 0, 0.8);
+          color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          z-index: 1001;
+        }
+      </style>
+    </noscript>
+  </head>
+
+  <body>
+    <!-- JavaScript Disabled Message -->
+    <noscript>
+      <div id="noscript-message">
+        <p>Please enable JavaScript for the best experience on this website.</p>
+      </div>
+    </noscript>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <header class="hide">
+      <nav>
+        <a href="#top" id="home"
+          ><img src="img/sitelogo.png" alt="Rutvij" class="logo"
+        /></a>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/Rutvij01"
+              ><span class="link">Github</span></a
+            >
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/rutvij-bhatt-01"
+              ><span class="link">Linkedin</span></a
+            >
+          </li>
+          <li class="menu" id="menu">
+            <a>
+              <div class="bar"></div>
+            </a>
+            <div class="menu-items" id="menu-items">
+              <a href="#top" data-name="Home"
+                ><i class="fa fa-home" aria-hidden="true"></i
+              ></a>
+              <a href="#education" data-name="Education"
+                ><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i
+              ></a>
+              <a href="#skills" data-name="Skills"
+                ><i class="fa-solid fa-star" aria-hidden="true"></i
+              ></a>
+              <a href="#experience" data-name="Experience"
+                ><i class="fa-solid fa-business-time" aria-hidden="true"></i
+              ></a>
+              <a href="#projects" data-name="Projects"
+                ><i class="fa-solid fa-folder-open" aria-hidden="true"></i
+              ></a>
+              <a href="#certificates" data-name="Certificates"
+                ><i class="fa-solid fa-certificate" aria-hidden="true"></i
+              ></a>
+              <a href="#contact" data-name="Contact"
+                ><i class="fa-solid fa-user" aria-hidden="true"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div id="top">
+        <div class="vignette hide"></div>
+        <img
+          src="img/background.png"
+          data-speedx="0.3"
+          data-speedy="0.38"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="-100"
+          class="parallax bg-img"
+        />
+        <img
+          src="img/fog_7.png"
+          data-speedx="0.27"
+          data-speedy="0.32"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="850"
+          class="parallax fog-7"
+        />
+        <img
+          src="img/mountain_10.png"
+          data-speedx="0.195"
+          data-speedy="0.305"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="1400"
+          class="parallax mountain-10"
+        />
+        <img
+          src="img/fog_6.png"
+          data-speedx="0.25"
+          data-speedy="0.28"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="1450"
+          class="parallax fog-6"
+        />
+        <img
+          src="img/mountain_9.png"
+          data-speedx="0.125"
+          data-speedy="0.155"
+          data-speedz="0.15"
+          data-rotation="0.02"
+          data-distance="1700"
+          class="parallax mountain-9"
+        />
+        <img
+          src="img/mountain_8.png"
+          data-speedx="0.1"
+          data-speedy="0.11"
+          data-speedz="0"
+          data-rotation="0.02"
+          data-distance="1800"
+          class="parallax mountain-8"
+        />
+        <img
+          src="img/fog_5.png"
+          data-speedx="0.16"
+          data-speedy="0.105"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="1950"
+          class="parallax fog-5"
+        />
+        <img
+          src="img/mountain_7.png"
+          data-speedx="0.1"
+          data-speedy="0.1"
+          data-speedz="0"
+          data-rotation="0.09"
+          data-distance="2000"
+          class="parallax mountain-7"
+        />
+        <div
+          class="parallax text"
+          data-speedx="0.07"
+          data-speedy="0.07"
+          data-speedz="0"
+          data-rotation="0.11"
+        >
+          <h2>Rutvij</h2>
+          <h1>Bhatt</h1>
+        </div>
+        <img
+          src="img/mountain_6.png"
+          data-speedx="0.065"
+          data-speedy="0.05"
+          data-speedz="0.05"
+          data-rotation="0.12"
+          data-distance="2300"
+          class="parallax mountain-6"
+        />
+        <img
+          src="img/fog_4.png"
+          data-speedx="0.135"
+          data-speedy="0.034"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="2400"
+          class="parallax fog-4"
+        />
+        <img
+          src="img/mountain_5.png"
+          data-speedx="0.08"
+          data-speedy="0.025"
+          data-speedz="0.13"
+          data-rotation="0.1"
+          data-distance="2550"
+          class="parallax mountain-5"
+        />
+        <img
+          src="img/fog_3.png"
+          data-speedx="0.11"
+          data-speedy="0.018"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="2800"
+          class="parallax fog-3"
+        />
+        <img
+          src="img/mountain_4.png"
+          data-speedx="0.059"
+          data-speedy="0.024"
+          data-speedz="0.35"
+          data-rotation="0.14"
+          data-distance="3200"
+          class="parallax mountain-4"
+        />
+        <img
+          src="img/mountain_3.png"
+          data-speedx="0.04"
+          data-speedy="0.018"
+          data-speedz="0.32"
+          data-rotation="0.05"
+          data-distance="3400"
+          class="parallax mountain-3"
+        />
+        <img
+          src="img/fog_2.png"
+          data-speedx="0.15"
+          data-speedy="0.0115"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="3600"
+          class="parallax fog-2"
+        />
+        <img
+          src="img/mountain_2.png"
+          data-speedx="0.0235"
+          data-speedy="0.013"
+          data-speedz="0.42"
+          data-rotation="0.15"
+          data-distance="3800"
+          class="parallax mountain-2"
+        />
+        <img
+          src="img/mountain_1.png"
+          data-speedx="0.027"
+          data-speedy="0.018"
+          data-speedz="0.53"
+          data-rotation="0.2"
+          data-distance="4000"
+          class="parallax mountain-1"
+        />
+        <img src="img/sun_rays.png" class="sun-rays hide" />
+        <img src="img/black_shadow.png" class="black-shadow hide" />
+        <img
+          src="img/fog_1.png"
+          data-speedx="0.12"
+          data-speedy="0.01"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="4200"
+          class="parallax fog-1"
+        />
+      </div>
+    </main>
+
+    <div class="rest">
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+      <div class="firefly"></div>
+
+      <div id="education">
+        <h2 class="education-title">Education</h2>
+        <div id="sparkle-layer"></div>
+
+        <div class="card sparkle-trigger">
+          <img src="img/GTU.png" alt="GTU" />
+          <div class="card-content">
+            <h3>Gujarat Technological University</h3>
+            <p>Ahmedabad, Gujarat, India.</p>
+            <br />
+            <p><b>Bachelor of Computer Engineering</b></p>
+            <br />
+            <p>CGPA: 9.48/10</p>
+          </div>
+        </div>
+
+        <div class="card sparkle-trigger">
+          <img src="img/Concordia University.png" alt="Concordia" />
+          <div class="card-content">
+            <h3>Concordia University</h3>
+            <p>Montreal, Quebec, Canada.</p>
+            <br />
+            <p><b>Master of Applied Computer Science (MApCompSc)</b></p>
+            <br />
+            <p>GPA: 3.45/4.30</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILL GLOBE -->
+      <div id="skills">
+        <h2 class="skills-title">Skills</h2>
+
+        <div class="skills-inner">
+          <!-- Globe area -->
+          <div class="globe-wrap">
+            <div class="globe" id="globe">
+              <img src="img/skills.png" alt="Main Globe" class="globe-center" />
+              <div class="orbit" id="orbit"></div>
+            </div>
+          </div>
+
+          <!-- Detail panel (appears on click) -->
+          <aside class="skill-detail" id="skillDetail" aria-hidden="true">
+            <div class="detail-content">
+              <div id="detailImage" class="detail-image"></div>
+              <div class="progress-circle" id="detailProgress">
+                <span class="percent" id="detailPercent">0%</span>
+              </div>
+              <h3 class="detail-title" id="detailTitle"></h3>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Data source for skills -->
+        <div id="skill-source" style="display: none">
+          <div class="skill-item" data-img="img/HTML5.png" data-percent="90">
+            <h3>HTML</h3>
+          </div>
+          <div class="skill-item" data-img="img/CSS3.png" data-percent="80">
+            <h3>CSS</h3>
+          </div>
+          <div
+            class="skill-item"
+            data-img="img/JavaScript.png"
+            data-percent="75"
+          >
+            <h3>JavaScript</h3>
+          </div>
+          <div class="skill-item" data-img="img/Java.png" data-percent="85">
+            <h3>Java</h3>
+          </div>
+          <div class="skill-item" data-img="img/Python.png" data-percent="80">
+            <h3>Python</h3>
+          </div>
+          <div class="skill-item" data-img="img/React.png" data-percent="70">
+            <h3>React</h3>
+          </div>
+          <div class="skill-item" data-img="img/Git.png" data-percent="55">
+            <h3>Git</h3>
+          </div>
+          <div class="skill-item" data-img="img/Jupyter.png" data-percent="90">
+            <h3>Jupyter for AI/ML Model</h3>
+          </div>
+          <div
+            class="skill-item"
+            data-img="img/PostgresSQL.png"
+            data-percent="60"
+          >
+            <h3>PostgresSQL</h3>
+          </div>
+          <div class="skill-item" data-img="img/SQL.png" data-percent="80">
+            <h3>SQL</h3>
+          </div>
+          <div class="skill-item" data-img="img/Postman.png" data-percent="55">
+            <h3>Postman</h3>
+          </div>
+          <div class="skill-item" data-img="img/C++.png" data-percent="60">
+            <h3>C++</h3>
+          </div>
+          <div
+            class="skill-item"
+            data-img="img/aws-color.png"
+            data-percent="85"
+          >
+            <h3>EC2 & Lambda</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+     EXPERIENCE SECTION — Floating Timeline
+===================================================== -->
+      <div id="experience">
+        <!-- Background glow overlay -->
+        <div class="experience-bg-overlay"></div>
+
+        <!-- Section content wrapper -->
+        <div class="experience-container">
+          <h2 class="experience-title">Experience</h2>
+
+          <!-- =======================
+         TIMELINE STRUCTURE
+    ======================= -->
+          <div class="timeline">
+            <!-- Comets — glowing trails moving along timeline -->
+            <div class="comet"></div>
+            <div class="comet"></div>
+            <div class="comet"></div>
+
+            <!-- =======================
+           EXPERIENCE ITEM 1
+      ======================= -->
+            <div class="timeline-item left">
+              <!-- Node (dot + logo) -->
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <a
+                  href="https://www.silverwingtechnologies.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="img/silwerwingAHM.png"
+                    alt="Silverwing Technologies Logo"
+                    class="timeline-logo"
+                  />
+                </a>
+              </div>
+
+              <!-- Experience card -->
+              <div class="timeline-card">
+                <h3>Web Designing Intern</h3>
+                <p class="company">Silverwing Technologies Pvt. Ltd.</p>
+                <p class="duration">Oct 2017 – Feb 2018</p>
+                <p class="desc">
+                  This internship consist of Developing a web module with the
+                  help of bootstrap framework and project deployment on the
+                  company server.
+                </p>
+              </div>
+            </div>
+
+            <!-- =======================
+           EXPERIENCE ITEM 2
+      ======================= -->
+            <div class="timeline-item right">
+              <!-- Node (dot + logo) -->
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <a
+                  href="https://www.silverwingtechnologies.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="img/silwerwingAHM.png"
+                    alt="Silverwing Technologies Logo"
+                    class="timeline-logo"
+                  />
+                </a>
+              </div>
+
+              <!-- Experience card -->
+              <div class="timeline-card">
+                <h3>ASP .NET Trainee</h3>
+                <p class="company">Silverwing Technologies Pvt. Ltd.</p>
+                <p class="duration">Fab 2018 – Aug 2018</p>
+                <p class="desc">
+                  Built and deployed modular commercial platform along with
+                  payment gateway integration and bulk SMS service.
+                </p>
+              </div>
+            </div>
+
+            <!-- =======================
+           EXPERIENCE ITEM 3
+      ======================= -->
+            <div class="timeline-item left">
+              <!-- Node (dot + logo) -->
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <a
+                  href="https://www.silverwingtechnologies.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="img/silwerwingAHM.png"
+                    alt="Silverwing Technologies Logo"
+                    class="timeline-logo"
+                  />
+                </a>
+              </div>
+
+              <!-- Experience card -->
+              <div class="timeline-card">
+                <h3>Technical Intern</h3>
+                <p class="company">Silverwing Technologies Pvt. Ltd.</p>
+                <p class="duration">Oct 2018 – Apr 2019</p>
+                <p class="desc">
+                  Assisted in developing website backend functionality in Java
+                  and database designing using MySQL.
+                </p>
+              </div>
+            </div>
+
+            <!-- =======================
+           EXPERIENCE ITEM 4
+      ======================= -->
+            <div class="timeline-item right">
+              <!-- Node (dot + logo) -->
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <a
+                  href="https://www.silverwingtechnologies.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="img/silwerwingAHM.png"
+                    alt="Silverwing Technologies Logo"
+                    class="timeline-logo"
+                  />
+                </a>
+              </div>
+
+              <!-- Experience card -->
+              <div class="timeline-card">
+                <h3>Jr. Python & Java Developer</h3>
+                <p class="company">Silverwing Technologies Pvt. Ltd.</p>
+                <p class="duration">Jul 2020 – Jun 2021</p>
+                <p class="desc">
+                  Developed a Django-based web module using MVC architecture,
+                  boosting client retention by 40%. Implemented MySQL triggers
+                  for data integrity, integrated SMSIdea via REST APIs for bulk
+                  messaging, and managed version control with Git in an agile
+                  team environment.
+                </p>
+              </div>
+            </div>
+
+            <!-- =======================
+           EXPERIENCE ITEM 5
+      ======================= -->
+            <div class="timeline-item left">
+              <!-- Node (dot + logo) -->
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <a
+                  href="https://gdg.community.dev/gdg-on-campus-concordia-university-montreal-canada/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="img/GDSC.jpeg"
+                    alt="GDSC Logo"
+                    class="timeline-logo"
+                  />
+                </a>
+              </div>
+
+              <!-- Experience card -->
+              <div class="timeline-card">
+                <h3>Machine Learning Mentee</h3>
+                <p class="company">GDSC Concordia</p>
+                <p class="duration">Oct 2023 – Mar 2024</p>
+                <p class="desc">
+                  Actively participatd in discussing and developing predictive
+                  ML models for predictive analysis using Python, Scikit-learn,
+                  and advanced statistical analysis tools.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- End of Timeline -->
+        </div>
+        <!-- End of Container -->
+      </div>
+      <!-- ========================= END OF EXPERIENCE SECTION ========================= -->
+
+      <!-- ====================== PROJECTS SECTION ====================== -->
+      <div id="projects">
+        <h2 class="projects-title">Projects</h2>
+
+        <!-- ===== MAIN TERMINAL (Project List) ===== -->
+        <div class="terminal" id="terminal-main" aria-live="polite">
+          <!-- Terminal Header -->
+          <div class="terminal-header">
+            <span class="dot red close-detail" aria-hidden="true"></span>
+            <span class="dot yellow" aria-hidden="true"></span>
+            <span class="dot green" aria-hidden="true"></span>
+            <span class="terminal-title">rutvij@portfolio:~</span>
+          </div>
+
+          <!-- Terminal Body -->
+          <div class="terminal-body" id="terminal-body">
+            <!-- Intro lines -->
+            <p class="intro">&gt; npm run showcase</p>
+            <p class="intro">&gt; Displaying featured projects...</p>
+
+            <!-- === PROJECT LIST ITEMS === -->
+            <!-- Each .project-line:
+           - data-* attributes hold title/tech/desc metadata for JS.
+           - JS retypes content dynamically.
+           - Clicking a line opens a corresponding detail terminal. -->
+            <div
+              class="project-line"
+              data-index="0"
+              data-title="Git Play Project"
+              data-tech="Play framework (JAVA) | Streams | Web Sockets | AKKA Actors"
+              data-desc="Engineered a real-time web application, instantly updating the top 10 GitHub repository search results through WebSockets and enhancing resulting repositories with word count functionality via Streams.|Enabled asynchronous processing with AKKA Actors and conducted comprehensive functionality tests, simulating GitHub REST calls with Mockito."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command">Git Play Project</span>
+              <span class="tech"
+                >[Play framework (JAVA) | Streams | Web Sockets | AKKA
+                Actors]</span
+              >
+            </div>
+
+            <div
+              class="project-line"
+              data-index="1"
+              data-title="Docker Swarm and Docker for Distributed WebApp"
+              data-tech="Node.js | JS | Docker Swarm | Docker | YAML"
+              data-desc="Orchestrated container deployment for 5 web app modules, utilizing Docker Swarm for load balancing and scaling to 5 server replicas for high availability and fault tolerance."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command"
+                >Docker Swarm and Docker for Distributed WebApp</span
+              >
+              <span class="tech"
+                >[Node.js | JS | Docker Swarm | Docker | YAML]</span
+              >
+            </div>
+
+            <div
+              class="project-line"
+              data-index="2"
+              data-title="PostgreSQL Extensibility and Provenance Queries"
+              data-tech="PostgreSQL | pgAdmin | PL/pgSQL"
+              data-desc="Attained a 40% improvement in query performance by optimizing execution times from 5.96 to 3.54 minutes using PostgreSQL functions, PL/pgSQL queries, and innovating a 'WHY' provenance solution for SELECT queries, particularly effective in complex join and search operations."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command"
+                >PostgreSQL Extensibility and Provenance Queries</span
+              >
+              <span class="tech">[PostgreSQL | pgAdmin | PL/pgSQL]</span>
+            </div>
+
+            <div
+              class="project-line"
+              data-index="3"
+              data-title="City Oversight"
+              data-tech="Django framework (Python) | OpenCV"
+              data-desc="Curated 2500+ images for YOLO-based ML model on road-based pothole and garbage detection, aiding effective cleanup prioritization.|Developed a citizen feedback website, increasing reachability by 20%, and generated reports with data visualization for the Municipal Corporation."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command">City Oversight</span>
+              <span class="tech">[Django framework (Python) | OpenCV]</span>
+            </div>
+
+            <div
+              class="project-line"
+              data-index="4"
+              data-title="Image Classification using Feed-Forward NN"
+              data-tech="Python | PyTorch | Matplotlib | KMNIST dataset | Jupyter Notebook"
+              data-desc="Designed a PyTorch neural network for image classification, utilizing 3 activation functions and 2 loss functions for enhanced performance.|Attained a robust 90.45% testing accuracy, with a focus on character recognition within the KMNIST dataset."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command"
+                >Image Classification using Feed-Forward NN</span
+              >
+              <span class="tech"
+                >[Python | PyTorch | Matplotlib | KMNIST dataset | Jupyter
+                Notebook]</span
+              >
+            </div>
+
+            <div
+              class="project-line"
+              data-index="5"
+              data-title="Face Mask Detection using CNN"
+              data-tech="Python | PyTorch | Matplotlib | Jupyter Notebook | Google Colab"
+              data-desc="Developed a CNN for accurate face mask detection using PyTorch's nn.Module library.|Achieved a high 92% accuracy rate by employing advanced techniques like LeakyReLU, Max Pooling, and Cross-Entropy loss.|Categorized masks into 5 types: cloth, N95, surgical, no mask, and improper.|Strengthened model robustness via 10-fold cross-validation and bias testing on gender and age data."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command">Face Mask Detection using CNN</span>
+              <span class="tech"
+                >[Python | PyTorch | Matplotlib | Jupyter Notebook | Google
+                Colab]</span
+              >
+            </div>
+
+            <div
+              class="project-line"
+              data-index="6"
+              data-title="IBM Data Science Capstone"
+              data-tech="Python | Pandas | Numpy | Matplotlib | Folium | Dash | scikit-learn | BeautifulSoup | Jupyter Notebook | IBM Watson Studio"
+              data-desc="Applied a comprehensive 7-stage Data Science methodology, covering data collection, wrangling, exploration, visualization, model development, evaluation, and results delivery.|Achieved an 83.34% accuracy in predicting SpaceX Falcon 9 rocket first-stage landing outcomes using four algorithms: Logistic Regression, SVM, Decision Tree Classifier, and KNN."
+              tabindex="0"
+            >
+              <span class="prompt">&gt;</span>
+              <span class="command">IBM Data Science Capstone</span>
+              <span class="tech"
+                >[Python | Pandas | Numpy | Matplotlib | Folium | Dash |
+                scikit-learn | BeautifulSoup | Jupyter Notebook | IBM Watson
+                Studio]</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== DYNAMIC DETAIL TERMINALS (Stacked below main terminal) ===== -->
+        <!-- JS dynamically inserts project-specific terminals here -->
+        <div
+          id="project-windows"
+          class="project-windows"
+          aria-live="polite"
+        ></div>
+      </div>
+      <!-- ====================== END PROJECTS SECTION ====================== -->
+      <!-- ====================== CERTIFICATES SECTION ====================== -->
+      <div id="certificates" class="certificates-section">
+        <h2 class="certificates-title">Certificates</h2>
+
+        <div class="certificate-container">
+          <div class="certificate-card" data-cert-index="0">
+            <div class="certificate-glow"></div>
+            <img src="img/Coursera.png" alt="IBM" />
+            <h3>Data Science Professional Certificate (V2)</h3>
+            <p>Coursera (Verified: IBM) · 2023</p>
+            <a
+              href="https://www.credly.com/badges/31daa26e-c910-46b7-a51e-50dbab5e5113/public_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="view-btn"
+              >View Credential</a
+            >
+          </div>
+
+          <div class="certificate-card" data-cert-index="1">
+            <div class="certificate-glow"></div>
+            <img src="img/Coursera.png" alt="Coursera" />
+            <h3>IBM Data Science Specialization</h3>
+            <p>Coursera · 2023</p>
+            <a
+              href="https://coursera.org/share/762279ed8208ecedd11aeea2532baa9f"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="view-btn"
+              >View Credential</a
+            >
+          </div>
+
+          <div class="certificate-card" data-cert-index="2">
+            <div class="certificate-glow"></div>
+            <img src="img/Coursera.png" alt="Coursera" />
+            <h3>Introduction to Data Science</h3>
+            <p>Coursera · 2022</p>
+            <a
+              href="https://www.coursera.org/account/accomplishments/specialization/certificate/Q3LZRCHE8X8J"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="view-btn"
+              >View Credential</a
+            >
+          </div>
+
+          <div class="certificate-card" data-cert-index="3">
+            <div class="certificate-glow"></div>
+            <img src="img/GSAConcordia.png" alt="GSA Concordia" />
+            <h3>Python For Machine Learning - Workshop</h3>
+            <p>Graduate Students' Association - Concordia University · 2021</p>
+            <span class="no-credential">No Credential Available</span>
+          </div>
+
+          <div class="certificate-card" data-cert-index="4">
+            <div class="certificate-glow"></div>
+            <img src="img/IEEESilverOak.jpeg" alt="IEEE SilverOak" />
+            <h3>Getting into Data Science using Python - Workshop</h3>
+            <p>Silver Oak University IEEE SB · 2020</p>
+            <span class="no-credential">No Credential Available</span>
+          </div>
+
+          <div class="certificate-card" data-cert-index="5">
+            <div class="certificate-glow"></div>
+            <img src="img/Coursera.png" alt="Coursera" />
+            <h3>Architecting with Google Compute Engine</h3>
+            <p>Coursera · 2020</p>
+            <a
+              href="https://coursera.org/share/627e0197a121829972b43528d8772460"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="view-btn"
+              >View Credential</a
+            >
+          </div>
+
+          <div class="certificate-card" data-cert-index="6">
+            <div class="certificate-glow"></div>
+            <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" />
+            <h3>C++ Training</h3>
+            <p>Spoken Tutorial · 2018</p>
+            <span class="no-credential">No Credential Available</span>
+          </div>
+
+          <div class="certificate-card" data-cert-index="7">
+            <div class="certificate-glow"></div>
+            <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" />
+            <h3>C Training</h3>
+            <p>Spoken Tutorial · 2017</p>
+            <span class="no-credential">No Credential Available</span>
+          </div>
+        </div>
+      </div>
+      <!-- ====================== END CERTIFICATES SECTION ====================== -->
+
+      <!-- =======================================================
+     CONTACT SECTION — Neural Pulse Interface (Final v2)
+======================================================= -->
+      <div id="contact">
+        <div class="contact-container">
+          <h2 class="contact-title">Let’s Connect — neuron to neuron</h2>
+
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/xqawzonj"
+            method="POST"
+          >
+            <div class="input-group">
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Name"
+                autocomplete="name"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email"
+                autocomplete="email"
+              />
+            </div>
+            <div class="input-group">
+              <textarea
+                name="message"
+                rows="4"
+                required
+                placeholder="Your Message"
+                autocomplete="off"
+              ></textarea>
+            </div>
+            <button type="submit" class="send-btn">Send Signal</button>
+            <p id="form-status"></p>
+          </form>
+
+          <div class="social-links">
+            <a
+              href="https://github.com/Rutvij01"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/rutvij-bhatt-01"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a id="mail-link" href="#" aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <footer id="footer">
+        <div class="footer-line"></div>
+        <div class="footer-content">
+          <!-- Attribution / Credits -->
+          <div class="footer-left">
+            <p class="credits">
+              Parallax inspired by
+              <b
+                ><a
+                  href="https://youtu.be/Yo3j_Dx4u7c?si=tmoGXdHyKK4g7DMI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >True Coder <i>(www.youtube.com/@TrueCoder)</i></a
+                ></b
+              >
+              <b> · </b>Fireflies by
+              <b
+                ><a
+                  href="https://codepen.io/mikegolus"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Mike Golus</a
+                ></b
+              >
+            </p>
+          </div>
+
+          <!-- Center Signature -->
+          <div class="footer-center">
+            <p>© 2025 <b>Rutvij Bhatt</b></p>
+            <p>Built with ❤️ using CSS · GSAP · Vanilla JS</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/app.js" defer></script>
+    <script>
+      // Display the loader while essential resources load
+      document.onreadystatechange = function () {
+        if (document.readyState === "complete") {
+          // Hide the loader when the page is fully loaded
+          document.getElementById("loader").style.display = "none";
+
+          // Show all content when the page is fully loaded
+          document.body.style.visibility = "visible";
+        } else {
+          // Hide all content while the page is loading
+          document.body.style.visibility = "hidden";
+        }
+      };
+    </script>
+  </body>
+</html>
