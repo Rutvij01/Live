@@ -5,16 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rutvij's Portfolio</title>
+    <meta name="description" content="Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio. Computer Science graduate with expertise in Python, Java, Machine Learning, and Web Development.">
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="img_optimized/background.webp" as="image">
+    <link rel="preload" href="img_optimized/mountain_1.webp" as="image">
+    <link rel="preload" href="style.css" as="style">
+    
     <link rel="icon" href="img/siteicon.png" />
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Load CSS with optimization -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- Optimized font loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"></noscript>
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      media="print" onload="this.media='all'"
     />
     <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
       <style>
         #noscript-message {
           display: block !important;
@@ -30,6 +58,59 @@
         }
       </style>
     </noscript>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Critical styles for initial load */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { 
+        font-family: "Poppins", sans-serif; 
+        background: #000; 
+        overflow-x: hidden;
+        visibility: hidden; /* Initially hidden until loaded */
+      }
+      .loader {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9); z-index: 1000;
+        display: flex; justify-content: center; align-items: center;
+      }
+      .lds-ripple { width: 80px; height: 80px; position: relative; }
+      .lds-ripple div {
+        position: absolute; border: 4px solid #126d70; opacity: 1;
+        border-radius: 50%; animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      .lds-ripple div:nth-child(2) { animation-delay: -0.5s; }
+      @keyframes lds-ripple {
+        0% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 0; }
+        4.9% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 0; }
+        5% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 1; }
+        100% { top: 0; left: 0; width: 80px; height: 80px; opacity: 0; }
+      }
+      main { position: relative; height: 100vh; width: 100vw; overflow: hidden; }
+      .parallax { pointer-events: none; transition: none; }
+      .text {
+        position: absolute; z-index: 9; top: 43%; left: 50%;
+        text-align: center; text-transform: uppercase; color: #f5faff;
+        text-shadow: 0 0 10px rgba(0, 255, 245, 0.6);
+      }
+      .text h2 { font-weight: 400; font-size: 6.5rem; line-height: 0.88; }
+      .text h1 { font-weight: 800; font-size: 8rem; line-height: 0.88; }
+      .hide { opacity: 0; }
+      
+      /* Responsive text */
+      @media (max-width: 1100px) {
+        .text h1 { font-size: 5.8rem; }
+        .text h2 { font-size: 4.7rem; }
+      }
+      @media (max-width: 725px) {
+        .text h1 { font-size: 4.8rem; line-height: 1.1; }
+        .text h2 { font-size: 4.1rem; line-height: 1.1; }
+      }
+      @media (max-width: 520px) {
+        .text h1 { font-size: 3.3rem; }
+        .text h2 { font-size: 2.6rem; }
+      }
+    </style>
   </head>
 
   <body>
@@ -106,76 +187,90 @@
       <div id="top">
         <div class="vignette hide"></div>
         <img
-          src="img/background.png"
+          src="img_optimized/background.webp"
           data-speedx="0.3"
           data-speedy="0.38"
           data-speedz="0"
           data-rotation="0"
           data-distance="-100"
           class="parallax bg-img"
+          loading="lazy"
         />
         <img
-          src="img/fog_7.png"
+          src="img_optimized/fog_7.webp"
           data-speedx="0.27"
           data-speedy="0.32"
           data-speedz="0"
           data-rotation="0"
           data-distance="850"
           class="parallax fog-7"
+          loading="lazy"
         />
         <img
-          src="img/mountain_10.png"
+          src="img_optimized/mountain_10.webp"
           data-speedx="0.195"
           data-speedy="0.305"
           data-speedz="0"
           data-rotation="0"
           data-distance="1400"
           class="parallax mountain-10"
+        
+          loading="lazy"
         />
         <img
-          src="img/fog_6.png"
+          src="img_optimized/fog_6.webp"
           data-speedx="0.25"
           data-speedy="0.28"
           data-speedz="0"
           data-rotation="0"
           data-distance="1450"
           class="parallax fog-6"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_9.png"
+          src="img_optimized/mountain_9.webp"
           data-speedx="0.125"
           data-speedy="0.155"
           data-speedz="0.15"
           data-rotation="0.02"
           data-distance="1700"
           class="parallax mountain-9"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_8.png"
+          src="img_optimized/mountain_8.webp"
           data-speedx="0.1"
           data-speedy="0.11"
           data-speedz="0"
           data-rotation="0.02"
           data-distance="1800"
           class="parallax mountain-8"
+        
+          loading="lazy"
         />
         <img
-          src="img/fog_5.png"
+          src="img_optimized/fog_5.webp"
           data-speedx="0.16"
           data-speedy="0.105"
           data-speedz="0"
           data-rotation="0"
           data-distance="1950"
           class="parallax fog-5"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_7.png"
+          src="img_optimized/mountain_7.webp"
           data-speedx="0.1"
           data-speedy="0.1"
           data-speedz="0"
           data-rotation="0.09"
           data-distance="2000"
           class="parallax mountain-7"
+        
+          loading="lazy"
         />
         <div
           class="parallax text"
@@ -188,96 +283,116 @@
           <h1>Bhatt</h1>
         </div>
         <img
-          src="img/mountain_6.png"
+          src="img_optimized/mountain_6.webp"
           data-speedx="0.065"
           data-speedy="0.05"
           data-speedz="0.05"
           data-rotation="0.12"
           data-distance="2300"
           class="parallax mountain-6"
+        
+          loading="lazy"
         />
         <img
-          src="img/fog_4.png"
+          src="img_optimized/fog_4.webp"
           data-speedx="0.135"
           data-speedy="0.034"
           data-speedz="0"
           data-rotation="0"
           data-distance="2400"
           class="parallax fog-4"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_5.png"
+          src="img_optimized/mountain_5.webp"
           data-speedx="0.08"
           data-speedy="0.025"
           data-speedz="0.13"
           data-rotation="0.1"
           data-distance="2550"
           class="parallax mountain-5"
+        
+          loading="lazy"
         />
         <img
-          src="img/fog_3.png"
+          src="img_optimized/fog_3.webp"
           data-speedx="0.11"
           data-speedy="0.018"
           data-speedz="0"
           data-rotation="0"
           data-distance="2800"
           class="parallax fog-3"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_4.png"
+          src="img_optimized/mountain_4.webp"
           data-speedx="0.059"
           data-speedy="0.024"
           data-speedz="0.35"
           data-rotation="0.14"
           data-distance="3200"
           class="parallax mountain-4"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_3.png"
+          src="img_optimized/mountain_3.webp"
           data-speedx="0.04"
           data-speedy="0.018"
           data-speedz="0.32"
           data-rotation="0.05"
           data-distance="3400"
           class="parallax mountain-3"
+        
+          loading="lazy"
         />
         <img
-          src="img/fog_2.png"
+          src="img_optimized/fog_2.webp"
           data-speedx="0.15"
           data-speedy="0.0115"
           data-speedz="0"
           data-rotation="0"
           data-distance="3600"
           class="parallax fog-2"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_2.png"
+          src="img_optimized/mountain_2.webp"
           data-speedx="0.0235"
           data-speedy="0.013"
           data-speedz="0.42"
           data-rotation="0.15"
           data-distance="3800"
           class="parallax mountain-2"
+        
+          loading="lazy"
         />
         <img
-          src="img/mountain_1.png"
+          src="img_optimized/mountain_1.webp"
           data-speedx="0.027"
           data-speedy="0.018"
           data-speedz="0.53"
           data-rotation="0.2"
           data-distance="4000"
           class="parallax mountain-1"
+        
+          loading="lazy"
         />
         <img src="img/sun_rays.png" class="sun-rays hide" />
         <img src="img/black_shadow.png" class="black-shadow hide" />
         <img
-          src="img/fog_1.png"
+          src="img_optimized/fog_1.webp"
           data-speedx="0.12"
           data-speedy="0.01"
           data-speedz="0"
           data-rotation="0"
           data-distance="4200"
           class="parallax fog-1"
+        
+          loading="lazy"
         />
       </div>
     </main>
@@ -945,8 +1060,9 @@
       </footer>
     </div>
 
-    <script src="js/gsap.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/gsap.min.js" defer></script>
+    <script src="js/ScrollTrigger.min.js" defer></script>
+    <script src="webp-fallback.js"></script>
     <script src="js/app.js" defer></script>
     <script>
       // Display the loader while essential resources load
