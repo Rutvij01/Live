@@ -40,6 +40,27 @@
     <h2>Recognition</h2>
     <p>Security researchers who responsibly disclose vulnerabilities will be acknowledged (with permission) in this page.</p>
     
-    <p><a href="index.html">← Back to Portfolio</a></p>
+    <p><button onclick="closeAndReturn()" style="background: none; border: none; color: #00fff5; text-decoration: underline; cursor: pointer; font-size: inherit;">← Back to Portfolio</button></p>
+
+    <script>
+        function closeAndReturn() {
+            // Try to close the window/tab
+            if (window.opener) {
+                // If opened by another window, close this one
+                window.close();
+            } else {
+                // If opened directly, redirect to portfolio
+                window.location.href = './index.html';
+            }
+        }
+        
+        // Auto-close after 30 seconds if user doesn't interact
+        setTimeout(() => {
+            const userInteracted = document.body.scrollTop > 0 || document.documentElement.scrollTop > 0;
+            if (!userInteracted) {
+                closeAndReturn();
+            }
+        }, 30000);
+    </script>
 </body>
 </html>

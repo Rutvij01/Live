@@ -13,13 +13,12 @@
     <!-- Security Headers (Only CSP works in meta tags) -->
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
-      script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
+      script-src 'self' 'unsafe-inline';
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
       font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
       img-src 'self' data:;
-      connect-src 'self' https://formspree.io https://www.google.com;
+      connect-src 'self' https://formspree.io;
       form-action 'self' https://formspree.io;
-      frame-src https://www.google.com;
       base-uri 'self';
       object-src 'none';
       upgrade-insecure-requests;
@@ -74,8 +73,6 @@
     
     <!-- DNS Prefetch for External Resources -->
     <link rel="dns-prefetch" href="https://formspree.io" />
-    <link rel="dns-prefetch" href="https://www.google.com" />
-    <link rel="dns-prefetch" href="https://www.gstatic.com" />
     
     <!-- Critical CSS for Loader (Inline for faster LCP) -->
     <style>
@@ -177,7 +174,7 @@
       }
     </style>
     
-    <!-- Optimized Font Loading -->
+    <!-- Optimized Font Loading with font-display -->
     <link
       rel="preload"
       as="style"
@@ -245,9 +242,6 @@
       ]
     }
     </script>
-    
-    <!-- Temporarily disabled for testing -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LeyJVssAAAAALd9vhBKAeR-Lzkrre01F7cM0zGD" async defer></script> -->
     
     <!-- Google Fonts - Optimized Loading -->
     <link

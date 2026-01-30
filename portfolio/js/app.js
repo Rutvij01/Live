@@ -1201,7 +1201,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (contactForm && formStatus) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      console.log('Form submission started');
 
       // Security: Rate limiting check
       const currentTime = Date.now();
@@ -1273,23 +1272,11 @@ document.addEventListener("DOMContentLoaded", function () {
       messageInput.value = messageValue;
       
       try {
-        // Temporarily disable reCAPTCHA to test basic form submission
-        console.log('Skipping reCAPTCHA for testing');
-
-        // Create form data without reCAPTCHA
+        // Create form data
         const formData = new FormData();
         formData.append('name', nameValue);
         formData.append('email', emailValue);
         formData.append('message', messageValue);
-
-        // Debug: Log form data
-        console.log('Form data:', {
-          name: nameValue,
-          email: emailValue,
-          message: messageValue.substring(0, 50) + '...'
-        });
-
-        console.log('Attempting form submission...');
 
         const response = await fetch(contactForm.action, {
           method: "POST",
@@ -1298,8 +1285,6 @@ document.addEventListener("DOMContentLoaded", function () {
             Accept: "application/json"
           },
         });
-
-        console.log('Response received:', response.status);
 
         if (response.ok) {
           formStatus.textContent = "Signal received — thank you!";
@@ -1310,24 +1295,10 @@ document.addEventListener("DOMContentLoaded", function () {
             wave = { radius: 0, opacity: 0.7 };
           }
         } else {
-          // Get the full error response
-          const responseText = await response.text();
-          console.error('Form submission failed:', response.status, responseText);
-          
-          let errorData;
-          try {
-            errorData = JSON.parse(responseText);
-          } catch (e) {
-            errorData = { error: responseText };
-          }
+          const errorData = await response.json().catch(() => ({}));
           
           if (response.status === 400) {
-            if (errorData.error && errorData.error.includes('reCAPTCHA')) {
-              formStatus.textContent = "Security verification failed. Please try again.";
-            } else {
-              formStatus.textContent = "Form validation failed. Please check your inputs.";
-              console.error('Validation error details:', errorData);
-            }
+            formStatus.textContent = "Form validation failed. Please check your inputs.";
           } else if (response.status === 403) {
             formStatus.textContent = "Form submission blocked. Please contact directly via email.";
           } else {
@@ -1336,7 +1307,6 @@ document.addEventListener("DOMContentLoaded", function () {
           formStatus.style.color = "#fa3174ff";
         }
       } catch (error) {
-        console.error('Form submission error:', error);
         formStatus.textContent = "Error sending message. Please contact directly via email.";
         formStatus.style.color = "#ff0055";
       }
