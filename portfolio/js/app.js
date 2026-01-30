@@ -1197,6 +1197,48 @@ document.addEventListener("DOMContentLoaded", function () {
   // Security: Rate limiting (prevent spam)
   let lastSubmissionTime = 0;
   const SUBMISSION_COOLDOWN = 30000; // 30 seconds
+  let countdownInterval = null;
+
+  // Function to update countdown display
+  function updateCountdown() {
+    const currentTime = Date.now();
+    const timeSinceLastSubmission = currentTime - lastSubmissionTime;
+    const remainingTime = SUBMISSION_COOLDOWN - timeSinceLastSubmission;
+
+    if (remainingTime > 0) {
+      const seconds = Math.ceil(remainingTime / 1000);
+      formStatus.textContent = `Please wait ${seconds}s before next submission`;
+      formStatus.style.color = "#ffa500";
+      formStatus.style.opacity = 1;
+      
+      // Disable submit button
+      const submitBtn = contactForm.querySelector('.send-btn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+        submitBtn.style.cursor = 'not-allowed';
+      }
+    } else {
+      // Clear countdown and re-enable form
+      clearInterval(countdownInterval);
+      countdownInterval = null;
+      formStatus.style.opacity = 0;
+      
+      const submitBtn = contactForm.querySelector('.send-btn');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }
+    }
+  }
+
+  // Start countdown timer
+  function startCountdown() {
+    if (countdownInterval) clearInterval(countdownInterval);
+    countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  }
 
   if (contactForm && formStatus) {
     contactForm.addEventListener("submit", async (e) => {
@@ -1205,11 +1247,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Security: Rate limiting check
       const currentTime = Date.now();
       if (currentTime - lastSubmissionTime < SUBMISSION_COOLDOWN) {
-        const remainingTime = Math.ceil((SUBMISSION_COOLDOWN - (currentTime - lastSubmissionTime)) / 1000);
-        formStatus.textContent = `Signal cooldown active — wait ${remainingTime}s before retransmission.`;
-        formStatus.style.color = "#fa3174ff";
-        gsap.to(formStatus, { opacity: 1, duration: 0.5, ease: "power2.out" });
-        gsap.to(formStatus, { opacity: 0, duration: 1, delay: 3, ease: "power2.inOut" });
+        // Don't show temporary message, countdown is already running
         return;
       }
 
@@ -1290,6 +1328,12 @@ document.addEventListener("DOMContentLoaded", function () {
           formStatus.textContent = "Signal received — thank you!";
           formStatus.style.color = "#00ffc3";
           contactForm.reset();
+          lastSubmissionTime = currentTime; // Update rate limit
+          
+          // Start countdown timer
+          setTimeout(() => {
+            startCountdown();
+          }, 3000); // Start countdown after success message fades
 
           if (typeof wave !== "undefined") {
             wave = { radius: 0, opacity: 0.7 };
