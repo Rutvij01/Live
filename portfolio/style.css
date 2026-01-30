@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap");
+/*
+  © 2026 Rutvij Bhatt. All rights reserved.
+  Contact: rutvijbhatt207@gmail.com
+  ⚠️ UNAUTHORIZED USE PROHIBITED
+*/
+
+/* Fonts loaded via HTML link tag for better performance */
 
 *,
 *::before,
@@ -19,6 +25,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
 }
 
 .lds-ripple,
@@ -107,6 +115,35 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid #0dc0c3; /* subtle custom focus indicator */
   outline-offset: 3px;
+}
+
+/* Fix picture element display for navigation */
+nav picture {
+  display: inline-block;
+}
+
+/* Screen reader only - for SEO H1 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hide class - keeps elements focusable but invisible until GSAP animates them */
+.hide {
+  opacity: 0;
+}
+
+/* Ensure menu button is focusable and visible when focused */
+.menu a:focus {
+  outline: 2px solid #1aeaea;
+  outline-offset: 2px;
 }
 
 * {
@@ -323,10 +360,14 @@ header ul a {
 
 /* Hamburger menu items */
 .menu-items {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: calc(100% + 55%);
-  /* padding: 3%; */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Add margin between menu items */
@@ -384,16 +425,26 @@ header ul a {
 }
 
 /* Menu items display */
-.menu:hover .menu-items {
-  display: flex;
-  flex-direction: column;
-  animation: slideIn 0.6s forwards;
+.menu:hover .menu-items,
+.menu.active .menu-items,
+.menu-items.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-.menu.active .menu-items {
-  display: flex;
-  flex-direction: column;
-  animation: slideIn 0.6s forwards;
+/* Force close menu - overrides hover */
+.menu.force-close .menu-items {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Show menu items when any menu item is focused (keyboard navigation) */
+.menu-items:focus-within {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @keyframes slideIn {
@@ -509,13 +560,13 @@ main {
   pointer-events: auto;
 }
 
-.text h2 {
+.text div:first-child {
   font-weight: 400;
   font-size: 6.5rem;
   line-height: 0.88;
 }
 
-.text h1 {
+.text div:last-child {
   font-weight: 800;
   font-size: 8rem;
   line-height: 0.88;
@@ -635,22 +686,22 @@ main {
 }
 
 @media (max-width: 1100px) {
-  .text h1 {
+  .text div:last-child {
     font-size: 5.8rem;
   }
 
-  .text h2 {
+  .text div:first-child {
     font-size: 4.7rem;
   }
 }
 
 @media (max-width: 725px) {
-  .text h1 {
+  .text div:last-child {
     font-size: 4.8rem;
     line-height: 1.1;
   }
 
-  .text h2 {
+  .text div:first-child {
     font-size: 4.1rem;
     line-height: 1.1;
   }
@@ -781,11 +832,11 @@ main {
 }
 
 @media (max-width: 520px) {
-  .text h1 {
+  .text div:last-child {
     font-size: 3.3rem;
   }
 
-  .text h2 {
+  .text div:first-child {
     font-size: 2.6rem;
   }
 
@@ -1567,7 +1618,7 @@ main {
 
 .card-content p {
   font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: #aaa;
+  color: #bbb; /* Improved contrast: was #aaa */
   line-height: 1.5;
 }
 /* -------------------- Base Container -------------------- */
@@ -2195,7 +2246,7 @@ main {
 }
 .timeline-card .duration {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #bbb; /* Improved contrast: was #aaa */
   margin-bottom: 10px;
 }
 .timeline-card .desc {
@@ -2819,9 +2870,9 @@ main {
 }
 
 .certificate-card p {
-  color: #aee8ff;
+  color: #b8f0ff; /* Improved contrast: was #aee8ff with opacity */
   font-size: 0.9rem;
-  opacity: 0.85;
+  opacity: 1; /* Improved contrast: was 0.85 */
   margin-bottom: 1rem;
 }
 
@@ -2932,7 +2983,7 @@ main {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.03);
+  background: transparent; /* Let it inherit from .rest parent */
   padding: 10vh 2vw;
   box-sizing: border-box;
   padding-bottom: 6vh; /* enough breathing room before footer */
@@ -3056,7 +3107,7 @@ main {
   position: relative;
   bottom: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.03);
+  background: transparent; /* Inherit from .rest parent for consistent appearance */
   color: #00fff5;
   font-size: 0.9rem;
   padding: 1.5rem 2rem 2rem;
@@ -3084,6 +3135,25 @@ main {
 
 .footer-center {
   text-align: center;
+}
+
+.copyright-notice {
+  margin-top: 10px;
+  opacity: 0.8;
+  font-size: 0.85em;
+}
+
+.copyright-notice a {
+  color: #00fff5;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 255, 245, 0.3);
+  transition: all 0.3s ease;
+}
+
+.copyright-notice a:hover {
+  color: #ff6b6b;
+  text-decoration-color: rgba(255, 107, 107, 0.6);
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
 }
 
 #footer a {

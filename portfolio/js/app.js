@@ -1,4 +1,49 @@
+/*
+  © 2026 Rutvij Bhatt. All rights reserved.
+  Portfolio: https://rutvij01.github.io/Live/portfolio/
+  Contact: rutvijbhatt207@gmail.com
+  
+  ⚠️ UNAUTHORIZED USE PROHIBITED
+  This code is protected by copyright law. Contact for licensing.
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Show body immediately when DOM is ready
+  document.body.classList.add('loaded');
+  
+  // Force scroll to top on page load for proper animation
+  window.scrollTo(0, 0);
+  
+  // Prevent browser from restoring scroll position
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // Show main content when ready for animations
+  const mainContent = document.getElementById('main-content');
+  if (mainContent) {
+    mainContent.classList.add('animation-ready');
+  }
+
+  // WebP fallback for parallax images (extra safety for very old browsers)
+  function checkWebPSupport() {
+    return new Promise((resolve) => {
+      const webP = new Image();
+      webP.onload = webP.onerror = () => resolve(webP.height === 2);
+      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    });
+  }
+
+  // Check WebP support and fallback for parallax images if needed
+  checkWebPSupport().then((hasWebP) => {
+    if (!hasWebP) {
+      // Replace .webp with .png for parallax images in very old browsers
+      document.querySelectorAll('.parallax img[src$=".webp"]').forEach(img => {
+        img.src = img.src.replace('.webp', '.png');
+      });
+    }
+  });
+
   // Elements
   const hamburgerMenu = document.getElementById("menu");
   const menuItems = document.getElementById("menu-items");
@@ -77,8 +122,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Toggle hamburger menu and menu items
   function toggleMenu() {
-    hamburgerMenu.classList.toggle("active");
+    const isActive = hamburgerMenu.classList.toggle("active");
     menuItems.classList.toggle("active");
+    
+    // Update ARIA attributes for accessibility
+    const menuButton = hamburgerMenu.querySelector('a');
+    menuButton.setAttribute('aria-expanded', isActive.toString());
   }
 
   hamburgerMenu.addEventListener("click", function (e) {
@@ -86,15 +135,65 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleMenu();
   });
 
+  // Add keyboard support for menu button
+  hamburgerMenu.addEventListener("keydown", function (e) {
+    // Handle Enter and Space keys
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+
   // Navigate to hamburger menu item's sections
   menuLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // Prevent default link behavior
-      const targetId = this.getAttribute("href"); // Get the target section ID from the href attribute
-      const targetElement = document.querySelector(targetId); // Find the target element in the DOM
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      
       if (targetElement) {
-        // Scroll to the target element smoothly
+        // Force close the menu by temporarily disabling hover effects
+        hamburgerMenu.classList.add("force-close");
+        hamburgerMenu.classList.remove("active");
+        menuItems.classList.remove("active");
+        
+        // Update ARIA attributes
+        const menuButton = hamburgerMenu.querySelector('a');
+        menuButton.setAttribute('aria-expanded', 'false');
+        
+        // Remove force-close class after menu closes
+        setTimeout(() => {
+          hamburgerMenu.classList.remove("force-close");
+        }, 500);
+        
+        // Scroll to the target element
         targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    // Keyboard support for menu items
+    link.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          // For keyboard users, close immediately
+          hamburgerMenu.classList.remove("active");
+          menuItems.classList.remove("active");
+          
+          // Update ARIA attributes
+          const menuButton = hamburgerMenu.querySelector('a');
+          menuButton.setAttribute('aria-expanded', 'false');
+          
+          // Scroll to the target element
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
       }
     });
   });
@@ -103,9 +202,14 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     const isClickInsideMenu =
       hamburgerMenu.contains(event.target) || menuItems.contains(event.target);
+    
     if (!isClickInsideMenu) {
       hamburgerMenu.classList.remove("active");
       menuItems.classList.remove("active");
+      
+      // Update ARIA state when closing menu
+      const menuButton = hamburgerMenu.querySelector('a');
+      menuButton.setAttribute('aria-expanded', 'false');
     }
   });
 
@@ -145,13 +249,13 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     });
 
-  // Animation for ".text h1"
+  // Animation for ".text div:last-child" (Bhatt)
   timeline.from(
-    ".text h1",
+    ".text div:last-child",
     {
       y:
         window.innerHeight -
-        document.querySelector(".text h1").getBoundingClientRect().top +
+        document.querySelector(".text div:last-child").getBoundingClientRect().top +
         200,
       duration: 2,
       opacity: 0,
@@ -159,9 +263,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "2.5"
   );
 
-  // Animation for ".text h2"
+  // Animation for ".text div:first-child" (Rutvij)
   timeline.from(
-    ".text h2",
+    ".text div:first-child",
     {
       y: -150,
       opacity: 0,
@@ -171,10 +275,10 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Animation for ".hide"
-  timeline.from(
+  timeline.to(
     ".hide",
     {
-      opacity: 0,
+      opacity: 1,
       duration: 1.5,
       ease: "power3.out",
     },
@@ -201,9 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.innerWidth >= 725 ? window.innerWidth * 0.6 : window.innerWidth * 1.6
   }px`;
 
-  // ==============================
   // GSAP Plugin Registration
-  // ==============================
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
   }
@@ -416,8 +518,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       detailImage.innerHTML = `
       <div class="aws-icons">
-        <img src="img/EC2.png" alt="EC2" class="aws-icon">
-        <img src="img/Lambda.png" alt="Lambda" class="aws-icon">
+        <img src="img/EC2.webp" alt="EC2" class="aws-icon">
+        <img src="img/Lambda.webp" alt="Lambda" class="aws-icon">
       </div>`;
       detailTitle.textContent = "AWS: EC2 & Lambda";
     } else {
@@ -524,9 +626,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("orientationchange", handleResize);
   rotateRaf = requestAnimationFrame(rotateLoop);
 
-  // ===========================
-  // EXPERIENCE TIMELINE INTERACTIONS
-  // ===========================
+  // Experience Timeline Interactions
 
   // ---------------------------
   // Reveal animation for each timeline card
@@ -1009,9 +1109,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 180);
     }
   })();
-  // ==============================
-  //  Certificates Section Effects
-  // ==============================
+
+  // Certificates Section Effects
   (function initCertificates() {
     const cards = gsap.utils.toArray(".certificate-card");
     if (!cards.length) return;
@@ -1082,81 +1181,150 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   })();
 
-  // =======================================================
-  // CONTACT FORM HANDLING + SIGNAL WAVE (Enhanced Feedback)
-  // =======================================================
+  // Contact Form Handling
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
+
+  // Security: Input sanitization function
+  function sanitizeInput(input) {
+    return input
+      .replace(/[<>]/g, '') // Remove potential HTML tags
+      .replace(/javascript:/gi, '') // Remove javascript: protocol
+      .replace(/on\w+=/gi, '') // Remove event handlers
+      .trim();
+  }
+
+  // Security: Rate limiting (prevent spam)
+  let lastSubmissionTime = 0;
+  const SUBMISSION_COOLDOWN = 30000; // 30 seconds
 
   if (contactForm && formStatus) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // -------------------------
-      // Email validation check
-      // -------------------------
-      const emailInput = contactForm.querySelector('input[name="email"]');
-      const emailValue = emailInput.value.trim();
-      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-      if (!emailPattern.test(emailValue)) {
-        formStatus.textContent =
-          "Invalid frequency detected — enter a valid email signal.";
-        formStatus.style.color = "#fa3174ff"; // neon red-pink (error)
+      // Security: Rate limiting check
+      const currentTime = Date.now();
+      if (currentTime - lastSubmissionTime < SUBMISSION_COOLDOWN) {
+        const remainingTime = Math.ceil((SUBMISSION_COOLDOWN - (currentTime - lastSubmissionTime)) / 1000);
+        formStatus.textContent = `Signal cooldown active — wait ${remainingTime}s before retransmission.`;
+        formStatus.style.color = "#fa3174ff";
         gsap.to(formStatus, { opacity: 1, duration: 0.5, ease: "power2.out" });
-        gsap.to(formStatus, {
-          opacity: 0,
-          duration: 1,
-          delay: 5,
-          ease: "power2.inOut",
-        });
-
-        // Email border glow for error
-        emailInput.style.borderColor = "#fa3174ff";
-        emailInput.style.boxShadow = "0 0 12px rgba(250, 49, 116, 0.5)";
-
-        // Remove glow after 3 seconds or when user starts typing again
-        setTimeout(() => {
-          emailInput.style.borderColor = "rgba(0, 255, 255, 0.3)";
-          emailInput.style.boxShadow = "none";
-        }, 3000);
-
-        emailInput.focus();
-        return; // stop submission
+        gsap.to(formStatus, { opacity: 0, duration: 1, delay: 3, ease: "power2.inOut" });
+        return;
       }
 
-      // Reset visibility and apply neutral state
-      formStatus.style.opacity = 0;
-      formStatus.style.color = "#00fff5"; // neutral cyan
-      formStatus.textContent = "Transmitting signal...";
+      // Get and sanitize form inputs
+      const nameInput = contactForm.querySelector('input[name="name"]');
+      const emailInput = contactForm.querySelector('input[name="email"]');
+      const messageInput = contactForm.querySelector('textarea[name="message"]');
 
-      // Fade in
+      const nameValue = sanitizeInput(nameInput.value);
+      const emailValue = sanitizeInput(emailInput.value);
+      const messageValue = sanitizeInput(messageInput.value);
+
+      // Enhanced validation
+      const namePattern = /^[A-Za-z\s\-\.]{2,100}$/;
+      const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+      const messagePattern = /^[\w\s\-\.\,\!\?\(\)]{10,1000}$/;
+
+      // Validate name
+      if (!namePattern.test(nameValue)) {
+        showValidationError(nameInput, "Invalid name format — use only letters, spaces, hyphens, and dots (2-100 chars).");
+        return;
+      }
+
+      // Validate email
+      if (!emailPattern.test(emailValue)) {
+        showValidationError(emailInput, "Invalid frequency detected — enter a valid email signal.");
+        return;
+      }
+
+      // Validate message
+      if (!messagePattern.test(messageValue)) {
+        showValidationError(messageInput, "Message contains invalid characters or wrong length (10-1000 chars).");
+        return;
+      }
+
+      // Security: Check for suspicious patterns
+      const suspiciousPatterns = [
+        /<script/i, /javascript:/i, /on\w+=/i, /eval\(/i, /document\./i,
+        /window\./i, /alert\(/i, /confirm\(/i, /prompt\(/i
+      ];
+
+      const allText = nameValue + ' ' + emailValue + ' ' + messageValue;
+      if (suspiciousPatterns.some(pattern => pattern.test(allText))) {
+        showValidationError(messageInput, "Security violation detected — message blocked.");
+        return;
+      }
+
+      // Show loading state
+      formStatus.style.opacity = 0;
+      formStatus.style.color = "#00fff5";
+      formStatus.textContent = "Transmitting signal...";
       gsap.to(formStatus, { opacity: 1, duration: 0.6, ease: "power2.out" });
 
-      const formData = new FormData(contactForm);
-
+      // Update rate limit
+      lastSubmissionTime = currentTime;
+      
+      // Set sanitized values back to form inputs
+      nameInput.value = nameValue;
+      emailInput.value = emailValue;
+      messageInput.value = messageValue;
+      
       try {
+        // Wait for reCAPTCHA to be ready and get token
+        let recaptchaToken = '';
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
+          try {
+            await new Promise(resolve => grecaptcha.ready(resolve));
+            recaptchaToken = await grecaptcha.execute('6LeyJVssAAAAALd9vhBKAeR-Lzkrre01F7cM0zGD', {action: 'contact_form'});
+          } catch (recaptchaError) {
+            formStatus.textContent = "Security verification failed. Please try again.";
+            formStatus.style.color = "#fa3174ff";
+            return;
+          }
+        } else {
+          formStatus.textContent = "Security verification not available. Please refresh and try again.";
+          formStatus.style.color = "#fa3174ff";
+          return;
+        }
+
+        // Create form data with reCAPTCHA token
+        const formData = new FormData();
+        formData.append('name', nameValue);
+        formData.append('email', emailValue);
+        formData.append('message', messageValue);
+        formData.append('g-recaptcha-response', recaptchaToken);
+
         const response = await fetch(contactForm.action, {
           method: "POST",
           body: formData,
-          headers: { Accept: "application/json" },
+          headers: { 
+            Accept: "application/json"
+          },
         });
 
         if (response.ok) {
           formStatus.textContent = "Signal received — thank you!";
-          formStatus.style.color = "#00ffc3"; // success (aqua-green)
+          formStatus.style.color = "#00ffc3";
           contactForm.reset();
 
           if (typeof wave !== "undefined") {
             wave = { radius: 0, opacity: 0.7 };
           }
         } else {
-          formStatus.textContent = "Transmission failed. Try again.";
-          formStatus.style.color = "#fa3174ff"; // error (neon pink-red)
+          const errorData = await response.json().catch(() => ({}));
+          
+          if (response.status === 400 && errorData.error && errorData.error.includes('reCAPTCHA')) {
+            formStatus.textContent = "Security verification failed. Please try again.";
+          } else {
+            formStatus.textContent = `Transmission failed (${response.status}). Try again.`;
+          }
+          formStatus.style.color = "#fa3174ff";
         }
-      } catch {
-        formStatus.textContent = "Error sending message.";
-        formStatus.style.color = "#ff0055"; // error color
+      } catch (error) {
+        formStatus.textContent = "Error sending message. Check your connection.";
+        formStatus.style.color = "#ff0055";
       }
 
       // Fade out smoothly after 7 seconds
@@ -1167,11 +1335,28 @@ document.addEventListener("DOMContentLoaded", function () {
         ease: "power2.inOut",
       });
     });
+
+    // Helper function for validation errors
+    function showValidationError(inputElement, message) {
+      formStatus.textContent = message;
+      formStatus.style.color = "#fa3174ff";
+      gsap.to(formStatus, { opacity: 1, duration: 0.5, ease: "power2.out" });
+      gsap.to(formStatus, { opacity: 0, duration: 1, delay: 5, ease: "power2.inOut" });
+
+      // Visual feedback on input
+      inputElement.style.borderColor = "#fa3174ff";
+      inputElement.style.boxShadow = "0 0 12px rgba(250, 49, 116, 0.5)";
+
+      setTimeout(() => {
+        inputElement.style.borderColor = "";
+        inputElement.style.boxShadow = "";
+      }, 3000);
+
+      inputElement.focus();
+    }
   }
 
-  // =======================================================
-  // SECURE EMAIL OBFUSCATION
-  // =======================================================
+  // Secure Email Obfuscation
   const mailLink = document.getElementById("mail-link");
   if (mailLink) {
     const user = "rutvijbhatt207";
@@ -1179,3 +1364,5 @@ document.addEventListener("DOMContentLoaded", function () {
     mailLink.href = `mailto:${user}@${domain}`;
   }
 });
+
+// © 2026 Rutvij Bhatt. All rights reserved.

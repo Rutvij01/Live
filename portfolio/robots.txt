@@ -1,0 +1,31 @@
+# Robots.txt for Rutvij Bhatt Portfolio
+# © 2026 Rutvij Bhatt. All rights reserved.
+# https://rutvij01.github.io/Live/portfolio/
+
+# Allow viewing of main portfolio
+User-agent: *
+Allow: /index.html
+Allow: /style.css
+Allow: /js/gsap.min.js
+Allow: /js/ScrollTrigger.min.js
+Allow: /img/
+
+# Allow access to legal pages for transparency
+Allow: /terms-of-use.html
+Allow: /security-policy.html
+
+# Disallow access to documentation and source code
+Disallow: /README.md
+Disallow: /js/app.js
+Disallow: /.well-known/
+
+# Crawl delay to prevent aggressive scraping
+Crawl-delay: 10
+
+# Sitemap location (if you create one)
+# Sitemap: https://rutvij01.github.io/Live/portfolio/sitemap.xml
+
+# Contact information for legitimate requests
+# Contact: rutvijbhatt207@gmail.com
+# Legal: All content is copyrighted and protected by law
+# License: Contact owner for any usage permissions

@@ -1,39 +1,277 @@
 <!DOCTYPE html>
+<!--
+  © 2026 Rutvij Bhatt. All rights reserved.
+  Contact: rutvijbhatt207@gmail.com
+  ⚠️ UNAUTHORIZED USE PROHIBITED
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rutvij's Portfolio</title>
-    <meta name="description" content="Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio. Computer Science graduate with expertise in Python, Java, Machine Learning, and Web Development.">
     
-    <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Security Headers (Only CSP works in meta tags) -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+      img-src 'self' data:;
+      connect-src 'self' https://formspree.io https://www.google.com;
+      form-action 'self' https://formspree.io;
+      frame-src https://www.google.com;
+      base-uri 'self';
+      object-src 'none';
+      upgrade-insecure-requests;
+    " />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="img_optimized/background.webp" as="image">
-    <link rel="preload" href="img_optimized/mountain_1.webp" as="image">
-    <link rel="preload" href="style.css" as="style">
+    <!-- SEO Meta Tags -->
+    <title>Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio</title>
+    <meta name="description" content="Rutvij Bhatt - Full Stack Developer & Data Scientist with expertise in Python, Java, React, AWS, Machine Learning. View my portfolio of innovative projects and professional experience." />
+    <meta name="keywords" content="Rutvij Bhatt, Full Stack Developer, Data Scientist, Python, Java, React, AWS, Machine Learning, Web Development, Portfolio" />
+    <meta name="author" content="Rutvij Bhatt" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
     
-    <link rel="icon" href="img/siteicon.png" />
+    <!-- Open Graph Meta Tags (Social Media) -->
+    <meta property="og:title" content="Rutvij Bhatt - Full Stack Developer & Data Scientist" />
+    <meta property="og:description" content="Innovative Full Stack Developer & Data Scientist specializing in Python, Java, React, and AWS. Explore my portfolio of cutting-edge projects." />
+    <meta property="og:image" content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp" />
+    <meta property="og:url" content="https://rutvij01.github.io/Live/portfolio/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rutvij Bhatt Portfolio" />
     
-    <!-- Load CSS with optimization -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rutvij Bhatt - Full Stack Developer & Data Scientist" />
+    <meta name="twitter:description" content="Innovative Full Stack Developer & Data Scientist. View my portfolio of Python, Java, React, and AWS projects." />
+    <meta name="twitter:image" content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp" />
+    <meta name="twitter:creator" content="@rutvij01" />
     
-    <!-- Optimized font loading -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"></noscript>
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="img/siteicon.webp" />
+    <link rel="apple-touch-icon" href="img/siteicon.webp" />
+    <link rel="canonical" href="https://rutvij01.github.io/Live/portfolio/" />
     
+    <!-- Preload Critical Resources for Better LCP -->
+    <link rel="preload" as="style" href="style.css" />
+    <link rel="preload" as="script" href="js/gsap.min.js" />
+    <link rel="preload" as="script" href="js/ScrollTrigger.min.js" />
+    <link rel="preload" as="script" href="js/app.js" />
+    
+    <!-- Preload Critical Images (Above the fold) -->
+    <link rel="preload" as="image" href="img/background.webp" />
+    <link rel="preload" as="image" href="img/fog_7.webp" />
+    <link rel="preload" as="image" href="img/mountain_1.webp" />
+    <link rel="preload" as="image" href="img/mountain_10.webp" />
+    
+    <!-- Preload Critical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    
+    <!-- DNS Prefetch for External Resources -->
+    <link rel="dns-prefetch" href="https://formspree.io" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.gstatic.com" />
+    
+    <!-- Critical CSS for Loader (Inline for faster LCP) -->
+    <style>
+      /* Critical loader styles - inline for immediate rendering */
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .lds-ripple,
+      .lds-ripple div {
+        box-sizing: border-box;
+      }
+      
+      .lds-ripple {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      
+      .lds-ripple div {
+        position: absolute;
+        border: 4px solid rgb(18, 109, 112);
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      
+      .lds-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+      
+      @keyframes lds-ripple {
+        0% {
+          top: 36px;
+          left: 36px;
+          width: 8px;
+          height: 8px;
+          opacity: 0;
+        }
+        4.9% {
+          top: 36px;
+          left: 36px;
+          width: 8px;
+          height: 8px;
+          opacity: 0;
+        }
+        5% {
+          top: 36px;
+          left: 36px;
+          width: 8px;
+          height: 8px;
+          opacity: 1;
+        }
+        100% {
+          top: 0;
+          left: 0;
+          width: 80px;
+          height: 80px;
+          opacity: 0;
+        }
+      }
+      
+      /* Critical body styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        visibility: hidden; /* Hide everything initially */
+      }
+      
+      /* Show body only after loader is ready */
+      body.loaded {
+        visibility: visible;
+      }
+      
+      /* Ensure main content is hidden until animations start */
+      #main-content {
+        opacity: 0;
+        visibility: hidden;
+      }
+      
+      /* Show main content when animations begin */
+      #main-content.animation-ready {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+    
+    <!-- Optimized Font Loading -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
+      />
+    </noscript>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rutvij Bhatt",
+      "jobTitle": "Full Stack Developer & Data Scientist",
+      "description": "Innovative Full Stack Developer and Data Scientist with expertise in Python, Java, React, AWS, and Machine Learning",
+      "url": "https://rutvij01.github.io/Live/portfolio/",
+      "image": "https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp",
+      "sameAs": [
+        "https://github.com/Rutvij01",
+        "https://www.linkedin.com/in/rutvij-bhatt-01"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Concordia University",
+          "location": "Montreal, Quebec, Canada"
+        },
+        {
+          "@type": "EducationalOrganization", 
+          "name": "Gujarat Technological University",
+          "location": "Ahmedabad, Gujarat, India"
+        }
+      ],
+      "knowsAbout": [
+        "Python Programming",
+        "Java Development", 
+        "React.js",
+        "AWS Cloud Services",
+        "Machine Learning",
+        "Data Science",
+        "Web Development",
+        "Full Stack Development"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "IBM Data Science Professional Certificate",
+          "credentialCategory": "Professional Certificate",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "IBM"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeyJVssAAAAALd9vhBKAeR-Lzkrre01F7cM0zGD" async defer></script>
+    
+    <!-- Google Fonts - Optimized Loading -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
+      />
+    </noscript>
+    
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      media="print" onload="this.media='all'"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript>
       <link
@@ -43,6 +281,8 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
       />
+    </noscript>
+    <noscript>
       <style>
         #noscript-message {
           display: block !important;
@@ -56,61 +296,17 @@
           border-radius: 5px;
           z-index: 1001;
         }
+        
+        /* When JavaScript is disabled, hide loader and show content */
+        body {
+          visibility: visible !important;
+        }
+        
+        #loader {
+          display: none !important;
+        }
       </style>
     </noscript>
-    
-    <!-- Critical CSS for above-the-fold content -->
-    <style>
-      /* Critical styles for initial load */
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { 
-        font-family: "Poppins", sans-serif; 
-        background: #000; 
-        overflow-x: hidden;
-        visibility: hidden; /* Initially hidden until loaded */
-      }
-      .loader {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.9); z-index: 1000;
-        display: flex; justify-content: center; align-items: center;
-      }
-      .lds-ripple { width: 80px; height: 80px; position: relative; }
-      .lds-ripple div {
-        position: absolute; border: 4px solid #126d70; opacity: 1;
-        border-radius: 50%; animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-      }
-      .lds-ripple div:nth-child(2) { animation-delay: -0.5s; }
-      @keyframes lds-ripple {
-        0% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 0; }
-        4.9% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 0; }
-        5% { top: 36px; left: 36px; width: 8px; height: 8px; opacity: 1; }
-        100% { top: 0; left: 0; width: 80px; height: 80px; opacity: 0; }
-      }
-      main { position: relative; height: 100vh; width: 100vw; overflow: hidden; }
-      .parallax { pointer-events: none; transition: none; }
-      .text {
-        position: absolute; z-index: 9; top: 43%; left: 50%;
-        text-align: center; text-transform: uppercase; color: #f5faff;
-        text-shadow: 0 0 10px rgba(0, 255, 245, 0.6);
-      }
-      .text h2 { font-weight: 400; font-size: 6.5rem; line-height: 0.88; }
-      .text h1 { font-weight: 800; font-size: 8rem; line-height: 0.88; }
-      .hide { opacity: 0; }
-      
-      /* Responsive text */
-      @media (max-width: 1100px) {
-        .text h1 { font-size: 5.8rem; }
-        .text h2 { font-size: 4.7rem; }
-      }
-      @media (max-width: 725px) {
-        .text h1 { font-size: 4.8rem; line-height: 1.1; }
-        .text h2 { font-size: 4.1rem; line-height: 1.1; }
-      }
-      @media (max-width: 520px) {
-        .text h1 { font-size: 3.3rem; }
-        .text h2 { font-size: 2.6rem; }
-      }
-    </style>
   </head>
 
   <body>
@@ -121,8 +317,8 @@
       </div>
     </noscript>
 
-    <!-- Loader -->
-    <div id="loader" class="loader">
+    <!-- Loader - Always visible initially -->
+    <div id="loader" class="loader" style="display: flex; opacity: 1; visibility: visible;">
       <div class="lds-ripple">
         <div></div>
         <div></div>
@@ -131,9 +327,12 @@
 
     <header class="hide">
       <nav>
-        <a href="#top" id="home"
-          ><img src="img/sitelogo.png" alt="Rutvij" class="logo"
-        /></a>
+        <a href="#top" id="home" aria-label="Rutvij Bhatt - Home">
+          <picture>
+            <source srcset="img/sitelogo.webp" type="image/webp">
+            <img src="img/sitelogo.png" alt="Rutvij Bhatt logo" class="logo" />
+          </picture>
+        </a>
         <ul>
           <li>
             <a
@@ -152,7 +351,7 @@
             >
           </li>
           <li class="menu" id="menu">
-            <a>
+            <a href="#" aria-label="Navigation menu" role="button" aria-expanded="false" aria-controls="menu-items" tabindex="0">
               <div class="bar"></div>
             </a>
             <div class="menu-items" id="menu-items">
@@ -183,221 +382,176 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
+      <!-- Hidden H1 for SEO - not visible but helps search engines -->
+      <h1 class="sr-only">Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio</h1>
+      
       <div id="top">
         <div class="vignette hide"></div>
         <img
-          src="img_optimized/background.webp"
+          src="img/background.webp"
           data-speedx="0.3"
           data-speedy="0.38"
           data-speedz="0"
           data-rotation="0"
           data-distance="-100"
           class="parallax bg-img"
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_7.webp"
+          src="img/fog_7.webp"
           data-speedx="0.27"
           data-speedy="0.32"
           data-speedz="0"
           data-rotation="0"
           data-distance="850"
           class="parallax fog-7"
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_10.webp"
+          src="img/mountain_10.webp"
           data-speedx="0.195"
           data-speedy="0.305"
           data-speedz="0"
           data-rotation="0"
           data-distance="1400"
           class="parallax mountain-10"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_6.webp"
+          src="img/fog_6.webp"
           data-speedx="0.25"
           data-speedy="0.28"
           data-speedz="0"
           data-rotation="0"
           data-distance="1450"
           class="parallax fog-6"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_9.webp"
+          src="img/mountain_9.webp"
           data-speedx="0.125"
           data-speedy="0.155"
           data-speedz="0.15"
           data-rotation="0.02"
           data-distance="1700"
           class="parallax mountain-9"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_8.webp"
+          src="img/mountain_8.webp"
           data-speedx="0.1"
           data-speedy="0.11"
           data-speedz="0"
           data-rotation="0.02"
           data-distance="1800"
           class="parallax mountain-8"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_5.webp"
+          src="img/fog_5.webp"
           data-speedx="0.16"
           data-speedy="0.105"
           data-speedz="0"
           data-rotation="0"
           data-distance="1950"
           class="parallax fog-5"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_7.webp"
+          src="img/mountain_7.webp"
           data-speedx="0.1"
           data-speedy="0.1"
           data-speedz="0"
           data-rotation="0.09"
           data-distance="2000"
           class="parallax mountain-7"
-        
-          loading="lazy"
         />
-        <div
-          class="parallax text"
-          data-speedx="0.07"
-          data-speedy="0.07"
-          data-speedz="0"
-          data-rotation="0.11"
-        >
-          <h2>Rutvij</h2>
-          <h1>Bhatt</h1>
+        <div class="parallax text" data-speedx="0.07" data-speedy="0.07" data-speedz="0" data-rotation="0.11">
+          <div>Rutvij</div>
+          <div>Bhatt</div>
         </div>
         <img
-          src="img_optimized/mountain_6.webp"
+          src="img/mountain_6.webp"
           data-speedx="0.065"
           data-speedy="0.05"
           data-speedz="0.05"
           data-rotation="0.12"
           data-distance="2300"
           class="parallax mountain-6"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_4.webp"
+          src="img/fog_4.webp"
           data-speedx="0.135"
           data-speedy="0.034"
           data-speedz="0"
           data-rotation="0"
           data-distance="2400"
           class="parallax fog-4"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_5.webp"
+          src="img/mountain_5.webp"
           data-speedx="0.08"
           data-speedy="0.025"
           data-speedz="0.13"
           data-rotation="0.1"
           data-distance="2550"
           class="parallax mountain-5"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_3.webp"
+          src="img/fog_3.webp"
           data-speedx="0.11"
           data-speedy="0.018"
           data-speedz="0"
           data-rotation="0"
           data-distance="2800"
           class="parallax fog-3"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_4.webp"
+          src="img/mountain_4.webp"
           data-speedx="0.059"
           data-speedy="0.024"
           data-speedz="0.35"
           data-rotation="0.14"
           data-distance="3200"
           class="parallax mountain-4"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_3.webp"
+          src="img/mountain_3.webp"
           data-speedx="0.04"
           data-speedy="0.018"
           data-speedz="0.32"
           data-rotation="0.05"
           data-distance="3400"
           class="parallax mountain-3"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/fog_2.webp"
+          src="img/fog_2.webp"
           data-speedx="0.15"
           data-speedy="0.0115"
           data-speedz="0"
           data-rotation="0"
           data-distance="3600"
           class="parallax fog-2"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_2.webp"
+          src="img/mountain_2.webp"
           data-speedx="0.0235"
           data-speedy="0.013"
           data-speedz="0.42"
           data-rotation="0.15"
           data-distance="3800"
           class="parallax mountain-2"
-        
-          loading="lazy"
         />
         <img
-          src="img_optimized/mountain_1.webp"
+          src="img/mountain_1.webp"
           data-speedx="0.027"
           data-speedy="0.018"
           data-speedz="0.53"
           data-rotation="0.2"
           data-distance="4000"
           class="parallax mountain-1"
-        
-          loading="lazy"
         />
-        <img src="img/sun_rays.png" class="sun-rays hide" />
-        <img src="img/black_shadow.png" class="black-shadow hide" />
-        <img
-          src="img_optimized/fog_1.webp"
-          data-speedx="0.12"
-          data-speedy="0.01"
-          data-speedz="0"
-          data-rotation="0"
-          data-distance="4200"
-          class="parallax fog-1"
-        
-          loading="lazy"
-        />
+        <img src="img/sun_rays.webp" class="sun-rays hide" />
+        <img src="img/black_shadow.webp" class="black-shadow hide" />
+        <img src="img/fog_1.webp" data-speedx="0.12" data-speedy="0.01" data-speedz="0" data-rotation="0" data-distance="4200" class="parallax fog-1" />
       </div>
     </main>
 
-    <div class="rest">
+    <div class="rest" role="complementary">
       <div class="firefly"></div>
       <div class="firefly"></div>
       <div class="firefly"></div>
@@ -415,11 +569,14 @@
       <div class="firefly"></div>
 
       <div id="education">
-        <h2 class="education-title">Education</h2>
+        <h2 id="education-title" class="education-title">Education</h2>
         <div id="sparkle-layer"></div>
 
         <div class="card sparkle-trigger">
-          <img src="img/GTU.png" alt="GTU" />
+          <picture>
+            <source srcset="img/GTU.webp" type="image/webp">
+            <img src="img/GTU.png" alt="Gujarat Technological University logo" loading="lazy" />
+          </picture>
           <div class="card-content">
             <h3>Gujarat Technological University</h3>
             <p>Ahmedabad, Gujarat, India.</p>
@@ -431,7 +588,10 @@
         </div>
 
         <div class="card sparkle-trigger">
-          <img src="img/Concordia University.png" alt="Concordia" />
+          <picture>
+            <source srcset="img/Concordia-University.webp" type="image/webp">
+            <img src="img/Concordia-University.png" alt="Concordia University logo" loading="lazy" />
+          </picture>
           <div class="card-content">
             <h3>Concordia University</h3>
             <p>Montreal, Quebec, Canada.</p>
@@ -445,13 +605,16 @@
 
       <!-- SKILL GLOBE -->
       <div id="skills">
-        <h2 class="skills-title">Skills</h2>
+        <h2 id="skills-title" class="skills-title">Skills</h2>
 
         <div class="skills-inner">
           <!-- Globe area -->
           <div class="globe-wrap">
-            <div class="globe" id="globe">
-              <img src="img/skills.png" alt="Main Globe" class="globe-center" />
+            <div class="globe" id="globe" role="application" aria-label="Interactive skills showcase - click on orbiting icons to view details">
+              <picture>
+                <source srcset="img/skills.webp" type="image/webp">
+                <img src="img/skills.png" alt="Interactive skills globe showing technical expertise" class="globe-center" />
+              </picture>
               <div class="orbit" id="orbit"></div>
             </div>
           </div>
@@ -470,53 +633,53 @@
 
         <!-- Data source for skills -->
         <div id="skill-source" style="display: none">
-          <div class="skill-item" data-img="img/HTML5.png" data-percent="90">
+          <div class="skill-item" data-img="img/HTML5.webp" data-percent="90">
             <h3>HTML</h3>
           </div>
-          <div class="skill-item" data-img="img/CSS3.png" data-percent="80">
+          <div class="skill-item" data-img="img/CSS3.webp" data-percent="80">
             <h3>CSS</h3>
           </div>
           <div
             class="skill-item"
-            data-img="img/JavaScript.png"
+            data-img="img/JavaScript.webp"
             data-percent="75"
           >
             <h3>JavaScript</h3>
           </div>
-          <div class="skill-item" data-img="img/Java.png" data-percent="85">
+          <div class="skill-item" data-img="img/Java.webp" data-percent="85">
             <h3>Java</h3>
           </div>
-          <div class="skill-item" data-img="img/Python.png" data-percent="80">
+          <div class="skill-item" data-img="img/Python.webp" data-percent="80">
             <h3>Python</h3>
           </div>
-          <div class="skill-item" data-img="img/React.png" data-percent="70">
+          <div class="skill-item" data-img="img/React.webp" data-percent="70">
             <h3>React</h3>
           </div>
-          <div class="skill-item" data-img="img/Git.png" data-percent="55">
+          <div class="skill-item" data-img="img/Git.webp" data-percent="55">
             <h3>Git</h3>
           </div>
-          <div class="skill-item" data-img="img/Jupyter.png" data-percent="90">
+          <div class="skill-item" data-img="img/Jupyter.webp" data-percent="90">
             <h3>Jupyter for AI/ML Model</h3>
           </div>
           <div
             class="skill-item"
-            data-img="img/PostgresSQL.png"
+            data-img="img/PostgresSQL.webp"
             data-percent="60"
           >
             <h3>PostgresSQL</h3>
           </div>
-          <div class="skill-item" data-img="img/SQL.png" data-percent="80">
+          <div class="skill-item" data-img="img/SQL.webp" data-percent="80">
             <h3>SQL</h3>
           </div>
-          <div class="skill-item" data-img="img/Postman.png" data-percent="55">
+          <div class="skill-item" data-img="img/Postman.webp" data-percent="55">
             <h3>Postman</h3>
           </div>
-          <div class="skill-item" data-img="img/C++.png" data-percent="60">
+          <div class="skill-item" data-img="img/Cplusplus.webp" data-percent="60">
             <h3>C++</h3>
           </div>
           <div
             class="skill-item"
-            data-img="img/aws-color.png"
+            data-img="img/aws-color.webp"
             data-percent="85"
           >
             <h3>EC2 & Lambda</h3>
@@ -533,7 +696,7 @@
 
         <!-- Section content wrapper -->
         <div class="experience-container">
-          <h2 class="experience-title">Experience</h2>
+          <h2 id="experience-title" class="experience-title">Experience</h2>
 
           <!-- =======================
          TIMELINE STRUCTURE
@@ -556,11 +719,15 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    src="img/silwerwingAHM.png"
-                    alt="Silverwing Technologies Logo"
-                    class="timeline-logo"
-                  />
+                  <picture>
+                    <source srcset="img/silwerwingAHM.webp" type="image/webp">
+                    <img
+                      src="img/silwerwingAHM.png"
+                      alt="Silverwing Technologies Logo"
+                      class="timeline-logo"
+                      loading="lazy"
+                    />
+                  </picture>
                 </a>
               </div>
 
@@ -688,11 +855,15 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img
-                    src="img/GDSC.jpeg"
-                    alt="GDSC Logo"
-                    class="timeline-logo"
-                  />
+                  <picture>
+                    <source srcset="img/GDSC.webp" type="image/webp">
+                    <img
+                      src="img/GDSC.jpeg"
+                      alt="GDSC Logo"
+                      class="timeline-logo"
+                      loading="lazy"
+                    />
+                  </picture>
                 </a>
               </div>
 
@@ -717,7 +888,7 @@
 
       <!-- ====================== PROJECTS SECTION ====================== -->
       <div id="projects">
-        <h2 class="projects-title">Projects</h2>
+        <h2 id="projects-title" class="projects-title">Projects</h2>
 
         <!-- ===== MAIN TERMINAL (Project List) ===== -->
         <div class="terminal" id="terminal-main" aria-live="polite">
@@ -865,12 +1036,15 @@
       <!-- ====================== END PROJECTS SECTION ====================== -->
       <!-- ====================== CERTIFICATES SECTION ====================== -->
       <div id="certificates" class="certificates-section">
-        <h2 class="certificates-title">Certificates</h2>
+        <h2 id="certificates-title" class="certificates-title">Certificates</h2>
 
         <div class="certificate-container">
           <div class="certificate-card" data-cert-index="0">
             <div class="certificate-glow"></div>
-            <img src="img/Coursera.png" alt="IBM" />
+            <picture>
+              <source srcset="img/Coursera.webp" type="image/webp">
+              <img src="img/Coursera.png" alt="IBM Data Science Certificate from Coursera" loading="lazy" />
+            </picture>
             <h3>Data Science Professional Certificate (V2)</h3>
             <p>Coursera (Verified: IBM) · 2023</p>
             <a
@@ -912,7 +1086,10 @@
 
           <div class="certificate-card" data-cert-index="3">
             <div class="certificate-glow"></div>
-            <img src="img/GSAConcordia.png" alt="GSA Concordia" />
+            <picture>
+              <source srcset="img/GSAConcordia.webp" type="image/webp">
+              <img src="img/GSAConcordia.png" alt="GSA Concordia" loading="lazy" />
+            </picture>
             <h3>Python For Machine Learning - Workshop</h3>
             <p>Graduate Students' Association - Concordia University · 2021</p>
             <span class="no-credential">No Credential Available</span>
@@ -920,7 +1097,10 @@
 
           <div class="certificate-card" data-cert-index="4">
             <div class="certificate-glow"></div>
-            <img src="img/IEEESilverOak.jpeg" alt="IEEE SilverOak" />
+            <picture>
+              <source srcset="img/IEEESilverOak.webp" type="image/webp">
+              <img src="img/IEEESilverOak.jpeg" alt="IEEE SilverOak" loading="lazy" />
+            </picture>
             <h3>Getting into Data Science using Python - Workshop</h3>
             <p>Silver Oak University IEEE SB · 2020</p>
             <span class="no-credential">No Credential Available</span>
@@ -942,7 +1122,10 @@
 
           <div class="certificate-card" data-cert-index="6">
             <div class="certificate-glow"></div>
-            <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" />
+            <picture>
+              <source srcset="img/SpokenTutorial.webp" type="image/webp">
+              <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" loading="lazy" />
+            </picture>
             <h3>C++ Training</h3>
             <p>Spoken Tutorial · 2018</p>
             <span class="no-credential">No Credential Available</span>
@@ -950,7 +1133,10 @@
 
           <div class="certificate-card" data-cert-index="7">
             <div class="certificate-glow"></div>
-            <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" />
+            <picture>
+              <source srcset="img/SpokenTutorial.webp" type="image/webp">
+              <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" loading="lazy" />
+            </picture>
             <h3>C Training</h3>
             <p>Spoken Tutorial · 2017</p>
             <span class="no-credential">No Credential Available</span>
@@ -970,36 +1156,52 @@
             id="contact-form"
             action="https://formspree.io/f/xqawzonj"
             method="POST"
+            novalidate
           >
             <div class="input-group">
+              <label for="contact-name" class="sr-only">Name</label>
               <input
                 type="text"
+                id="contact-name"
                 name="name"
                 required
                 placeholder="Name"
                 autocomplete="name"
+                maxlength="100"
+                pattern="[A-Za-z\s\-\.]{2,100}"
+                title="Name should contain only letters, spaces, hyphens, and dots (2-100 characters)"
               />
             </div>
             <div class="input-group">
+              <label for="contact-email" class="sr-only">Email</label>
               <input
                 type="email"
+                id="contact-email"
                 name="email"
                 required
                 placeholder="Email"
                 autocomplete="email"
+                maxlength="254"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Please enter a valid email address"
               />
             </div>
             <div class="input-group">
+              <label for="contact-message" class="sr-only">Message</label>
               <textarea
+                id="contact-message"
                 name="message"
                 rows="4"
                 required
                 placeholder="Your Message"
                 autocomplete="off"
+                maxlength="1000"
+                minlength="10"
+                title="Message should be between 10-1000 characters"
               ></textarea>
             </div>
             <button type="submit" class="send-btn">Send Signal</button>
-            <p id="form-status"></p>
+            <p id="form-status" role="status" aria-live="polite"></p>
           </form>
 
           <div class="social-links">
@@ -1024,7 +1226,7 @@
         </div>
       </div>
 
-      <footer id="footer">
+      <footer id="footer" role="contentinfo">
         <div class="footer-line"></div>
         <div class="footer-content">
           <!-- Attribution / Credits -->
@@ -1053,31 +1255,107 @@
 
           <!-- Center Signature -->
           <div class="footer-center">
-            <p>© 2025 <b>Rutvij Bhatt</b></p>
+            <p>© 2026 <b>Rutvij Bhatt</b> · All Rights Reserved</p>
             <p>Built with ❤️ using CSS · GSAP · Vanilla JS</p>
+            <p class="copyright-notice">
+              <small>
+                🚫 <strong>Unauthorized use prohibited.</strong> 
+                <a href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> · 
+                <a href="security-policy.html" target="_blank" rel="noopener noreferrer">Security Policy</a>
+              </small>
+            </p>
           </div>
         </div>
       </footer>
     </div>
 
-    <script src="js/gsap.min.js" defer></script>
-    <script src="js/ScrollTrigger.min.js" defer></script>
-    <script src="webp-fallback.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
     <script src="js/app.js" defer></script>
     <script>
-      // Display the loader while essential resources load
-      document.onreadystatechange = function () {
-        if (document.readyState === "complete") {
-          // Hide the loader when the page is fully loaded
-          document.getElementById("loader").style.display = "none";
+      // Security: Disable right-click context menu (optional - can be bypassed)
+      // document.addEventListener('contextmenu', e => e.preventDefault());
+      
+      // Security: Disable F12, Ctrl+Shift+I, Ctrl+U (optional - can be bypassed)
+      // document.addEventListener('keydown', function(e) {
+      //   if (e.key === 'F12' || 
+      //       (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      //       (e.ctrlKey && e.key === 'u')) {
+      //     e.preventDefault();
+      //   }
+      // });
 
-          // Show all content when the page is fully loaded
-          document.body.style.visibility = "visible";
-        } else {
-          // Hide all content while the page is loading
-          document.body.style.visibility = "hidden";
+      // SIMPLIFIED AND ROBUST LOADER IMPLEMENTATION
+      let contentShown = false;
+      let loaderTimeout;
+      
+      // Hide content initially (but keep loader visible)
+      document.body.style.visibility = "hidden";
+      
+      function showContent() {
+        if (contentShown) return;
+        contentShown = true;
+        
+        const loader = document.getElementById("loader");
+        if (loader) {
+          loader.style.transition = "opacity 0.5s ease-out";
+          loader.style.opacity = "0";
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 500);
+        }
+        
+        // Show content
+        document.body.style.visibility = "visible";
+        
+        if (loaderTimeout) {
+          clearTimeout(loaderTimeout);
+        }
+      }
+      
+      function ensureLoaderVisible() {
+        const loader = document.getElementById("loader");
+        if (loader) {
+          loader.style.display = "flex";
+          loader.style.opacity = "1";
+          loader.style.visibility = "visible";
+        }
+        // Hide content while loading
+        document.body.style.visibility = "hidden";
+      }
+      
+      // Ensure loader is visible immediately
+      ensureLoaderVisible();
+      
+      // Primary loading detection
+      document.onreadystatechange = function () {
+        if (document.readyState === "loading") {
+          ensureLoaderVisible();
+        } else if (document.readyState === "complete") {
+          showContent();
         }
       };
+      
+      // Backup triggers
+      document.addEventListener('DOMContentLoaded', function() {
+        ensureLoaderVisible();
+      });
+      
+      window.addEventListener('load', function() {
+        setTimeout(showContent, 100);
+      });
+      
+      // Safety timeout - always show content after 10 seconds
+      loaderTimeout = setTimeout(function() {
+        showContent();
+      }, 10000);
+      
+      // Progressive loading check
+      setTimeout(function() {
+        if (!contentShown && document.readyState !== "loading") {
+          showContent();
+        }
+      }, 3000);
     </script>
   </body>
 </html>
