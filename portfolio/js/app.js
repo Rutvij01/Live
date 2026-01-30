@@ -1273,44 +1273,22 @@ document.addEventListener("DOMContentLoaded", function () {
       messageInput.value = messageValue;
       
       try {
-        // Wait for reCAPTCHA to be ready and get token
-        let recaptchaToken = '';
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.ready) {
-          try {
-            await new Promise(resolve => grecaptcha.ready(resolve));
-            recaptchaToken = await grecaptcha.execute('6LeyJVssAAAAALd9vhBKAeR-Lzkrre01F7cM0zGD', {action: 'contact_form'});
-            
-            // Debug: Check if token was generated
-            if (!recaptchaToken) {
-              throw new Error('reCAPTCHA token generation failed');
-            }
-          } catch (recaptchaError) {
-            // If reCAPTCHA fails, show specific error but continue without it
-            console.warn('reCAPTCHA failed:', recaptchaError.message);
-            formStatus.textContent = "Proceeding without bot protection...";
-            formStatus.style.color = "#ffa500";
-            
-            // Continue without reCAPTCHA token
-            recaptchaToken = '';
-          }
-        } else {
-          console.warn('reCAPTCHA not available');
-          formStatus.textContent = "Proceeding without bot protection...";
-          formStatus.style.color = "#ffa500";
-        }
+        // Temporarily disable reCAPTCHA to test basic form submission
+        console.log('Skipping reCAPTCHA for testing');
 
-        // Create form data
+        // Create form data without reCAPTCHA
         const formData = new FormData();
         formData.append('name', nameValue);
         formData.append('email', emailValue);
         formData.append('message', messageValue);
-        
-        // Only add reCAPTCHA token if we have one
-        if (recaptchaToken) {
-          formData.append('g-recaptcha-response', recaptchaToken);
-        }
 
-        // Debug: Log submission attempt
+        // Debug: Log form data
+        console.log('Form data:', {
+          name: nameValue,
+          email: emailValue,
+          message: messageValue.substring(0, 50) + '...'
+        });
+
         console.log('Attempting form submission...');
 
         const response = await fetch(contactForm.action, {
@@ -1332,11 +1310,24 @@ document.addEventListener("DOMContentLoaded", function () {
             wave = { radius: 0, opacity: 0.7 };
           }
         } else {
-          const errorData = await response.json().catch(() => ({}));
-          console.error('Form submission failed:', response.status, errorData);
+          // Get the full error response
+          const responseText = await response.text();
+          console.error('Form submission failed:', response.status, responseText);
           
-          if (response.status === 400 && errorData.error && errorData.error.includes('reCAPTCHA')) {
-            formStatus.textContent = "Security verification failed. Please try again.";
+          let errorData;
+          try {
+            errorData = JSON.parse(responseText);
+          } catch (e) {
+            errorData = { error: responseText };
+          }
+          
+          if (response.status === 400) {
+            if (errorData.error && errorData.error.includes('reCAPTCHA')) {
+              formStatus.textContent = "Security verification failed. Please try again.";
+            } else {
+              formStatus.textContent = "Form validation failed. Please check your inputs.";
+              console.error('Validation error details:', errorData);
+            }
           } else if (response.status === 403) {
             formStatus.textContent = "Form submission blocked. Please contact directly via email.";
           } else {
