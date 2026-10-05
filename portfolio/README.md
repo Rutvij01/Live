@@ -3,279 +3,435 @@
 **Full Stack Developer & Data Scientist**
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-00fff5?style=for-the-badge)](https://rutvij01.github.io/Live/portfolio/)
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-ff6b6b?style=for-the-badge)](terms-of-use.html)
+[![Terms of Use](https://img.shields.io/badge/Terms%20of%20Use-v2.0-ff6b6b?style=for-the-badge)](terms-of-use.html)
+[![Security Policy](https://img.shields.io/badge/Security%20Policy-v2.0-00c2ff?style=for-the-badge)](security-policy.html)
 [![Contact](https://img.shields.io/badge/Contact-Email-00c2ff?style=for-the-badge)](mailto:rutvijbhatt207@gmail.com)
 
 ---
 
-## **📋 Overview**
+## 📋 Overview
 
-Professional portfolio showcasing expertise in **Python**, **Java**, **React**, **AWS**, **Machine Learning**, and modern web development. Features advanced parallax animations, optimized performance, comprehensive security, and intelligent contact form.
+Professional portfolio showcasing expertise in **Python**, **Java**, **React**, **AWS**, **Machine Learning**, and modern web development.
+
+The portfolio features interactive parallax animations, responsive layouts, optimized assets, client-side validation, secure form submission, accessibility considerations, and security-focused configuration.
 
 **🌐 Live Portfolio:** https://rutvij01.github.io/Live/portfolio/
 
 ---
 
-## **⚡ Key Features**
+## ⚡ Key Features
 
-### **🎨 Interactive Design**
-- **20+ Parallax Layers** - Immersive depth effects with mountain landscapes
-- **Interactive Skills Globe** - 3D orbital showcase with 13 technologies
-- **Animated Timeline** - Professional experience with floating cards
-- **Terminal Projects** - Typewriter effect project showcase
-- **Responsive Design** - Perfect on all devices (mobile-first approach)
+### 🎨 Interactive Design
 
-### **📧 Smart Contact Form**
-- **Intelligent Rate Limiting** - Visual countdown timer (30s cooldown)
-- **Real-time Validation** - Instant feedback with custom error messages
-- **Secure Submission** - Formspree integration with input sanitization
-- **Custom Success Messages** - No page redirects, stays on portfolio
-- **Button State Management** - Disabled during cooldown periods
+- **Parallax Effects** - Immersive depth effects with layered visual elements
+- **Interactive Skills Globe** - 3D orbital showcase of technologies
+- **Animated Timeline** - Professional experience with interactive cards
+- **Terminal Projects** - Typewriter-style project showcase
+- **Responsive Design** - Adaptive layouts across screen sizes
+- **GSAP Animations** - Smooth visual interactions and transitions
 
-### **🔒 Security & Performance**
-- **87% Image Optimization** - WebP format with PNG/JPEG fallbacks
-- **Content Security Policy** - XSS protection and secure resource loading
-- **Input Sanitization** - Multi-layer protection against attacks
-- **HTTPS Enforcement** - All communications encrypted
-- **FOUC Prevention** - No flash of unstyled content
+### 📧 Smart Contact Form
 
----
+- **Client-Side Cooldown** - Helps reduce repeated submissions
+- **Real-Time Validation** - Immediate feedback with custom validation messages
+- **Formspree Integration** - External service for contact-form processing
+- **Custom Success Feedback** - User-friendly submission status
+- **Button State Management** - Helps prevent repeated submissions during cooldown periods
 
-## **🛠️ Technical Stack**
+### 🔒 Security & Performance
 
-### **Frontend**
-```
-HTML5        - Semantic markup with accessibility features
-CSS3         - Advanced animations, flexbox, grid layouts
-JavaScript   - ES6+ vanilla implementation (1300+ lines)
-GSAP         - Professional animation library
-ScrollTrigger - Scroll-based interaction system
-```
+- **Optimized Images** - Modern image formats and appropriate fallbacks where applicable
+- **Content Security Policy** - CSP configuration for controlled resource loading
+- **Input Validation & Sanitization** - Client-side handling of submitted form data
+- **HTTPS** - Live portfolio served through HTTPS
+- **Subresource Integrity** - Integrity protection for supported external resources
+- **FOUC Prevention** - Loading strategy designed to reduce flash of unstyled content
+- **Responsible Disclosure Policy** - Dedicated security reporting process
+- **Terms of Use** - Defined website usage and intellectual-property terms
+- **XML Sitemap** - Sitemap for publicly indexable portfolio pages
+- **Robots.txt** - Search-engine crawler instructions
 
-### **Performance**
-```
-WebP Images  - Modern format with 87% size reduction
-Preloading   - Critical resource optimization
-Font Display - Optimized web font loading with swap
-Minification - Production-ready asset compression
-```
-
-### **Security**
-```
-CSP Headers  - Content security policy implementation
-Formspree    - Secure form backend service
-Rate Limiting - Spam and abuse prevention
-Input Validation - XSS and injection protection
-```
+> **Security Note:** Client-side security controls are defense-in-depth measures and should not be considered a substitute for server-side security controls.
 
 ---
 
-## **📊 Performance Metrics**
+## 🛠️ Technical Stack
 
-| Metric | Target | Achieved | Status |
-|--------|--------|----------|--------|
-| **First Contentful Paint** | < 1.5s | ~1.2s | ✅ |
-| **Largest Contentful Paint** | < 2.5s | ~2.1s | ✅ |
-| **Cumulative Layout Shift** | < 0.1 | ~0.05 | ✅ |
-| **Time to Interactive** | < 3.5s | ~2.8s | ✅ |
-| **Image Optimization** | 80%+ | 87% | ✅ |
-| **Accessibility Score** | AA | WCAG 2.1 AA | ✅ |
+### Frontend
+
+```text
+HTML5          - Semantic markup and accessibility-focused structure
+CSS3           - Responsive layouts, animations, flexbox, and grid
+JavaScript     - ES6+ vanilla implementation
+GSAP           - Animation library
+ScrollTrigger  - Scroll-based interaction system
+```
+
+### Performance
+
+```text
+WebP Images    - Modern image format for reduced asset size
+Preloading     - Critical resource optimization
+Font Loading   - Web-font loading optimization
+Fallbacks      - PNG/JPEG compatibility where appropriate
+Lazy Loading   - Deferred loading where applicable
+```
+
+### Security
+
+```text
+CSP            - Content Security Policy configuration
+Formspree      - External form-processing service
+Rate Limiting  - Client-side spam and abuse mitigation
+Validation     - Client-side input validation and sanitization
+SRI            - Subresource Integrity for supported external resources
+HTTPS          - Encrypted transport through the live HTTPS site
+```
+
+> Browser-side security controls can be bypassed and should not be interpreted as absolute protection against attacks.
 
 ---
 
-## **📁 Project Structure**
+## 📁 Project Structure
 
-```
+```text
 portfolio/
-├── 📄 index.html              # Main portfolio application
-├── 🎨 style.css               # Optimized stylesheet (3000+ lines)
-├── 📋 README.md               # This documentation
-├── ⚖️ terms-of-use.html       # Legal terms with smart navigation
-├── 🛡️ security-policy.html    # Security policy with auto-close
-├── 🤖 robots.txt              # SEO crawling rules
+
+├── 📄 index.html                # Main portfolio page
+├── 🎨 style.css                 # Main stylesheet
+├── 📋 README.md                 # Project documentation
+├── ⚖️ terms-of-use.html         # Terms of Use v2.0
+├── 🛡️ security-policy.html      # Security Policy v2.0
+├── 🤖 robots.txt                # Search-engine crawler instructions
+├── 🗺️ sitemap.xml               # XML sitemap for public pages
+│
 ├── 📁 js/
-│   ├── 🚀 app.js              # Core functionality (1300+ lines)
-│   ├── 📚 gsap.min.js         # Animation library
-│   └── 📜 ScrollTrigger.min.js # Scroll animation plugin
-├── 📁 img/                    # Optimized image assets
-│   ├── 🖼️ 44 × *.webp files   # Modern WebP format
-│   └── 🖼️ 48 × fallback files # PNG/JPEG compatibility
+│   ├── 🚀 app.js                # Core portfolio functionality
+│   ├── 📚 gsap.min.js           # Animation library
+│   └── 📜 ScrollTrigger.min.js  # Scroll animation plugin
+│
+├── 📁 img/                      # Image and visual assets
+│
 └── 📁 .well-known/
-    └── 🔒 security.txt        # Security contact information
+    └── 🔒 security.txt          # Security contact information
 ```
 
-**Total Files:** 100 | **Total Size:** ~5.1MB (87% reduction from 39MB)
-
 ---
 
-## **🎯 Sections Overview**
+## 🎯 Sections Overview
 
-### **🏠 Hero Section**
-- **Parallax Mountains** - 20 layered elements with depth effects
+### 🏠 Hero Section
+
+- **Parallax Visuals** - Layered visual depth effects
 - **Dynamic Text Animation** - GSAP-powered entrance sequences
-- **Mouse Interaction** - Parallax responds to cursor movement
-- **Loading Animation** - Smooth reveal with lock-scroll prevention
+- **Mouse Interaction** - Cursor-responsive visual effects
+- **Loading Animation** - Controlled page reveal and loading state
 
-### **🎓 Education**
-- **Interactive Cards** - Sparkle effects on click
-- **University Logos** - Optimized WebP images with fallbacks
-- **Academic Details** - GPA, degrees, and locations
-- **Responsive Layout** - Stacked on mobile, side-by-side on desktop
+### 🎓 Education
 
-### **⭐ Skills**
-- **3D Orbital Globe** - 13 technologies in rotating orbit
-- **Click Interactions** - Detailed skill breakdown with progress bars
-- **Responsive Radius** - Adapts to screen size automatically
-- **Smooth Animations** - 60fps performance with GSAP
+- **Interactive Cards** - Animated academic information
+- **University Logos** - Visual academic assets
+- **Academic Details** - Degrees and educational information
+- **Responsive Layout** - Adaptive presentation across devices
 
-### **💼 Experience**
-- **Floating Timeline** - Professional experience with hover effects
-- **Company Logos** - Clickable links to organizations
-- **Animated Comets** - Moving elements along timeline
-- **Responsive Design** - Horizontal on desktop, vertical on mobile
+### ⭐ Skills
 
-### **💻 Projects**
-- **Terminal Interface** - Typewriter effect project showcase
+- **3D Orbital Globe** - Interactive technology visualization
+- **Click Interactions** - Detailed skill information
+- **Responsive Radius** - Adapts to available screen size
+- **Smooth Animations** - GSAP-powered interactions
+
+### 💼 Experience
+
+- **Floating Timeline** - Professional experience presentation
+- **Company Links** - Links to relevant organizations
+- **Animated Elements** - Visual timeline effects
+- **Responsive Design** - Adaptive desktop and mobile presentation
+
+### 💻 Projects
+
+- **Terminal Interface** - Interactive project presentation
+- **Typewriter Effects** - Animated project content
 - **Dynamic Windows** - Expandable project details
-- **Close Animations** - Smooth transitions and cleanup
-- **Responsive Layout** - Adapts to all screen sizes
+- **Responsive Layout** - Optimized presentation across screen sizes
 
-### **🏆 Certificates**
-- **Achievement Gallery** - Professional certifications display
-- **Optimized Images** - WebP format with PNG fallbacks
-- **Hover Effects** - Subtle animations on interaction
-- **Grid Layout** - Responsive certificate showcase
+### 🏆 Certificates
 
-### **📞 Contact**
-- **Smart Form** - Rate limiting with visual countdown
-- **Real-time Validation** - Instant feedback on errors
-- **Security Features** - Input sanitization and spam protection
-- **Social Links** - Professional networking connections
+- **Achievement Gallery** - Professional certifications
+- **Optimized Images** - Modern image formats and fallbacks
+- **Hover Effects** - Interactive visual feedback
+- **Responsive Grid** - Adaptive certificate presentation
 
----
+### 📞 Contact
 
-## **♿ Accessibility Features**
-
-### **Keyboard Navigation**
-- **Full Tab Support** - All interactive elements accessible
-- **Focus Indicators** - Clear visual feedback
-- **Skip Navigation** - Efficient content access
-- **ARIA Labels** - Screen reader compatibility
-
-### **Visual Accessibility**
-- **Color Contrast** - WCAG 2.1 AA compliant
-- **Responsive Text** - Scales with user preferences
-- **Alternative Text** - Descriptive image descriptions
-- **Motion Respect** - Considerate animation implementation
+- **Smart Contact Form** - Client-side validation and cooldown
+- **Real-Time Validation** - Immediate user feedback
+- **Form Security** - Input validation and controlled submission
+- **Social Links** - GitHub, LinkedIn, and email contact options
 
 ---
 
-## **🔒 Security Implementation**
+## ♿ Accessibility Features
 
-### **Form Security**
-- **Input Sanitization** - XSS and injection prevention
-- **Rate Limiting** - 30-second cooldown with visual timer
-- **Pattern Validation** - Suspicious content detection
-- **Secure Transmission** - HTTPS-only communication
+### ⌨️ Keyboard Navigation
 
-### **Content Security**
-- **CSP Headers** - Strict content security policy
-- **External Link Protection** - `rel="noopener noreferrer"`
-- **Email Obfuscation** - JavaScript-based construction
-- **Resource Integrity** - Trusted domain whitelist
+- **Tab Navigation** - Interactive elements designed for keyboard access
+- **Focus Indicators** - Visible interaction feedback
+- **Skip Navigation** - Efficient navigation to main content where implemented
+- **ARIA Labels** - Additional semantic information where appropriate
 
----
+### 👁️ Visual Accessibility
 
-## **🌐 Browser Compatibility**
+- **Color Contrast** - Designed with accessibility considerations
+- **Responsive Text** - Adaptive typography
+- **Alternative Text** - Descriptive image alternatives where appropriate
+- **Motion Considerations** - Animation implementation designed with accessibility in mind
 
-| Browser | Version | Support | Features |
-|---------|---------|---------|----------|
-| **Chrome** | 90+ | ✅ Full | All features |
-| **Firefox** | 88+ | ✅ Full | All features |
-| **Safari** | 14+ | ✅ Full | All features |
-| **Edge** | 90+ | ✅ Full | All features |
-| **Mobile Safari** | 14+ | ✅ Full | Touch optimized |
-| **Chrome Mobile** | 90+ | ✅ Full | Touch optimized |
-
-**Legacy Support:** Graceful degradation with automatic fallbacks
+> Accessibility implementation is intended to follow good practices, but formal conformance should be verified through dedicated accessibility testing.
 
 ---
 
-## **📞 Contact Information**
+## 🔒 Security Implementation
 
-### **Professional Contact**
+### Form Security
+
+- **Input Validation** - Client-side validation of submitted fields
+- **Input Sanitization** - Client-side handling of potentially unsafe input
+- **Rate Limiting** - Client-side submission cooldown
+- **Pattern Validation** - Detection of invalid or suspicious input patterns
+- **HTTPS** - Secure communication when accessed through the live HTTPS site
+- **Formspree** - External form-processing service
+
+### Content Security
+
+- **Content Security Policy** - Restricts permitted resource origins
+- **External Link Protection** - `rel="noopener noreferrer"` on applicable external links
+- **Subresource Integrity** - SRI protection for supported third-party resources
+- **Resource Restrictions** - Controlled external resource loading
+- **Object Restrictions** - CSP `object-src 'none'` configuration
+- **Base URI Restriction** - CSP `base-uri 'self'` configuration
+- **Form Action Restriction** - CSP restricts form submissions to permitted destinations
+
+### Security Disclosure
+
+Security vulnerabilities can be reported through the dedicated Security Policy.
+
+The Security Policy:
+
+- Defines the security-reporting process
+- Identifies the intended testing scope
+- Excludes third-party infrastructure and services
+- Prohibits destructive testing and denial-of-service activity
+- Requests responsible disclosure
+- Does not guarantee a specific response or resolution time
+- Is not a bug-bounty program
+- Does not guarantee monetary compensation
+
+**Security Policy:** [security-policy.html](security-policy.html)
+
+---
+
+## 🌐 Search Engine Configuration
+
+The portfolio includes standard search-engine configuration files.
+
+### Robots.txt
+
+`robots.txt` provides crawler instructions and references the XML sitemap.
+
+**Robots:** [robots.txt](robots.txt)
+
+### XML Sitemap
+
+`sitemap.xml` identifies the primary public pages intended for search-engine discovery.
+
+**Sitemap:** [sitemap.xml](sitemap.xml)
+
+The sitemap currently includes the main portfolio and Terms of Use page. The Security Policy is excluded because it is intentionally configured with `noindex, nofollow`.
+
+### Security.txt
+
+The portfolio provides a standardized security contact file at:
+
+**Security.txt:** [.well-known/security.txt](.well-known/security.txt)
+
+The file provides the security reporting contact, preferred language, policy location, canonical URL, and expiration date.
+
+---
+
+## 🌐 Browser Compatibility
+
+The portfolio is designed for modern desktop and mobile browsers, including:
+
+| Browser           | Support      |
+| ----------------- | ------------ |
+| **Chrome**        | ✅ Supported |
+| **Firefox**       | ✅ Supported |
+| **Safari**        | ✅ Supported |
+| **Edge**          | ✅ Supported |
+| **Mobile Safari** | ✅ Supported |
+| **Chrome Mobile** | ✅ Supported |
+
+> Actual behavior may vary depending on browser version, device capabilities, operating system, network conditions, and enabled browser features.
+
+---
+
+## 📞 Contact Information
+
+### Professional Contact
+
 - **📧 Email:** [rutvijbhatt207@gmail.com](mailto:rutvijbhatt207@gmail.com)
 - **💼 LinkedIn:** [linkedin.com/in/rutvij-bhatt-01](https://www.linkedin.com/in/rutvij-bhatt-01)
 - **💻 GitHub:** [github.com/Rutvij01](https://github.com/Rutvij01)
 - **🌐 Portfolio:** [Live Portfolio](https://rutvij01.github.io/Live/portfolio/)
 
-### **Response Time**
-- **Email Inquiries:** Within 48 hours
-- **Collaboration Requests:** Within 24 hours
-- **Technical Questions:** Within 72 hours
+### Security Reports
+
+Security vulnerabilities should be reported responsibly using the contact information provided in the Security Policy and `security.txt`.
+
+- **📧 Email:** [rutvijbhatt207@gmail.com](mailto:rutvijbhatt207@gmail.com)
+- **Subject:** `Security Report - Portfolio`
+- **Response:** Reports are reviewed as reasonably practicable. No specific response or resolution time is guaranteed.
 
 ---
 
-## **⚖️ Legal & Licensing**
+## ⚖️ Legal & Intellectual Property
 
-### **Copyright Notice**
+### Copyright Notice
+
 **© 2026 Rutvij Bhatt. All rights reserved.**
 
-This portfolio is protected under international copyright law. All code, design, content, and assets are proprietary and require written permission for any use.
+Original materials created for this portfolio may be protected by applicable copyright and intellectual-property laws in India and other jurisdictions where protection is available.
 
-### **Usage Restrictions**
-- ❌ **Prohibited:** Copying, reproducing, or using any code/design
-- ❌ **Prohibited:** Using as template, inspiration, or reference
-- ❌ **Prohibited:** Commercial or educational use without permission
-- ✅ **Permitted:** Viewing for personal reference and professional evaluation
+The portfolio may contain third-party software, open-source libraries, frameworks, fonts, icons, images, services, trademarks, logos, or other materials that remain subject to their respective licenses and ownership rights.
 
-### **Licensing Inquiries**
-For any usage requests, contact: [rutvijbhatt207@gmail.com](mailto:rutvijbhatt207@gmail.com)
+### Usage Restrictions
 
----
+Unless permission has been granted or another applicable license allows the use:
 
-## **🔒 Security & Privacy**
+- ❌ **Prohibited:** Unauthorized copying or substantial reproduction of original website content
+- ❌ **Prohibited:** Unauthorized redistribution or extraction of protected source code or assets
+- ❌ **Prohibited:** Creating derivative works from substantial portions of protected materials
+- ❌ **Prohibited:** Commercial exploitation of protected materials without permission
+- ❌ **Prohibited:** Systematic scraping or unauthorized extraction of website content
+- ❌ **Prohibited:** Circumventing technical measures intended to protect the website
+- ❌ **Prohibited:** Misrepresenting ownership, authorship, sponsorship, or affiliation
+- ✅ **Permitted:** Viewing and browsing the portfolio for lawful personal or professional purposes
+- ✅ **Permitted:** Sharing the public portfolio URL
+- ✅ **Permitted:** Professional, recruitment, hiring, and business evaluation
 
-### **Data Protection**
-- **No Personal Data Storage** - Contact form uses secure Formspree service
-- **HTTPS Enforced** - All communications encrypted
-- **Privacy Focused** - Minimal external dependencies
-- **No Tracking** - Respects user privacy
+### International Protection
 
-### **Security Reporting**
-Found a security issue? Report responsibly:
-- **Email:** [rutvijbhatt207@gmail.com](mailto:rutvijbhatt207@gmail.com)
-- **Subject:** "Security Report - Portfolio"
-- **Response:** Within 24 hours
+The Terms of Use recognize that intellectual-property protection can vary between jurisdictions.
 
----
+Applicable protection may arise under Indian law, the laws of other jurisdictions, and applicable international frameworks such as the **Berne Convention** and, where applicable, the **WIPO Copyright Treaty**.
 
-## **📈 Development Statistics**
+The Terms do not claim that Indian law automatically provides identical protection or remedies in every jurisdiction.
 
-- **📅 Development Time:** 6 months of optimization
-- **📝 Lines of Code:** 4,500+ (HTML, CSS, JS)
-- **🖼️ Images Optimized:** 92 files
-- **⚡ Performance Gain:** 87% size reduction
-- **♿ Accessibility:** WCAG 2.1 AA compliant
-- **🔒 Security Features:** 15+ implemented measures
-- **🌐 Browser Testing:** 6+ browsers verified
-- **📱 Device Testing:** Mobile, tablet, desktop optimized
+### Licensing & Permission
+
+For permission to reproduce, redistribute, modify, publish, or otherwise use protected portfolio materials beyond the permitted uses:
+
+📧 [rutvijbhatt207@gmail.com](mailto:rutvijbhatt207@gmail.com)
+
+Permission is granted only when expressly confirmed in writing. No particular response or approval time is guaranteed.
+
+**Full Terms:** [terms-of-use.html](terms-of-use.html)
 
 ---
 
-## **🎯 Project Achievements**
+## 🔐 Security & Privacy
 
-- ✅ **Professional Showcase** - Demonstrates full-stack expertise
-- ✅ **Performance Excellence** - Lightning-fast loading times
-- ✅ **Security Hardened** - Protected against common attacks
-- ✅ **Accessibility Compliant** - Usable by everyone
-- ✅ **SEO Optimized** - Search engine friendly
-- ✅ **Mobile Responsive** - Perfect on all devices
-- ✅ **Legally Protected** - Copyright and usage rights established
-- ✅ **Contact Integration** - Secure, intelligent communication
+### Security
+
+The portfolio uses security-focused configuration and practices appropriate for a static personal portfolio, including:
+
+- HTTPS through the live hosting environment
+- Content Security Policy configuration
+- Controlled external resource loading
+- Subresource Integrity where applicable
+- Client-side validation
+- Client-side rate limiting
+- Secure external form processing through Formspree
+- Responsible security disclosure process
+- Standardized `security.txt` contact information
+
+### Privacy
+
+The portfolio is designed to minimize unnecessary data collection.
+
+The contact form is processed through **Formspree**, which may process submitted information according to its own services, policies, and terms.
+
+External resources and third-party services may have their own privacy practices and policies.
+
+For security reporting, please avoid sending passwords, authentication tokens, personal information, or other sensitive information unless strictly necessary to demonstrate a vulnerability.
+
+**Security Policy:** [security-policy.html](security-policy.html)
+
+---
+
+## 📈 Development Information
+
+- **📅 Development:** Ongoing development and optimization
+- **📝 Source Code:** HTML, CSS, and JavaScript
+- **🖼️ Images:** Optimized portfolio visual assets
+- **⚡ Performance:** Image and resource optimization
+- **♿ Accessibility:** Accessibility-focused implementation
+- **🔒 Security:** Multiple security and defensive configuration measures
+- **🌐 Browser Testing:** Desktop and mobile browser testing
+- **📱 Responsive:** Mobile, tablet, and desktop layouts
+
+> Project details and implementation may change as the portfolio continues to evolve.
+
+---
+
+## 🎯 Project Highlights
+
+- ✅ **Professional Showcase** - Demonstrates full-stack and data-science capabilities
+- ✅ **Interactive Experience** - Advanced animations and portfolio interactions
+- ✅ **Performance Focused** - Optimized images and resource loading
+- ✅ **Security Focused** - CSP, validation, HTTPS, SRI, and responsible disclosure
+- ✅ **Accessibility Focused** - Semantic structure, keyboard navigation, and accessible interactions
+- ✅ **SEO Optimized** - Structured metadata, canonical URL, robots.txt, and XML sitemap
+- ✅ **Mobile Responsive** - Adaptive layouts across devices
+- ✅ **Internationally Aware Legal Terms** - India-based governing-law framework with recognition of international IP considerations
+- ✅ **Responsible Disclosure** - Dedicated security policy and `security.txt`
+- ✅ **Professional Contact Integration** - Formspree-powered contact workflow
+
+---
+
+## 📜 Legal & Security Documents
+
+| Document                                 | Version / Status | Purpose                                                               |
+| ---------------------------------------- | ---------------- | --------------------------------------------------------------------- |
+| [Terms of Use](terms-of-use.html)        | **v2.0**         | Website usage, intellectual property, permissions, and legal terms    |
+| [Security Policy](security-policy.html)  | **v2.0**         | Responsible vulnerability disclosure and security research guidelines |
+| [Security.txt](.well-known/security.txt) | **Current**      | Standardized security contact and policy information                  |
+| [Robots.txt](robots.txt)                 | **Current**      | Search-engine crawler instructions                                    |
+| [Sitemap.xml](sitemap.xml)               | **Current**      | Public-page search-engine discovery                                   |
+
+---
+
+## 📌 Important Notes
+
+- This repository is a personal portfolio project.
+- Third-party materials remain subject to their respective licenses and terms.
+- The Terms of Use do not grant ownership or a general license to third-party materials.
+- Security controls implemented in client-side code should not be interpreted as absolute protection against all attacks.
+- `robots.txt` provides crawler guidance and is not an access-control or security mechanism.
+- `sitemap.xml` is intended to identify public pages for search-engine discovery.
+- Security researchers should follow the dedicated Security Policy before conducting vulnerability testing.
+- No bug bounty, monetary reward, employment opportunity, or specific response time is guaranteed for security reports.
+- The portfolio and its documentation may be updated as the project evolves.
+
+---
+
+## 📄 Version Information
+
+**Last Updated:** October 5, 2026
+**Version:** 2.0
+**Status:** Production Ready
 
 ---
 
 **Built with ❤️ and meticulous attention to detail by Rutvij Bhatt**
-
-**Last Updated:** January 30, 2026 | **Version:** 1.0 | **Status:** Production Ready

@@ -1,10 +1,11 @@
 Contact: mailto:rutvijbhatt207@gmail.com
-Expires: 2026-12-31T23:59:59.000Z
+Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: en
 Canonical: https://rutvij01.github.io/Live/portfolio/.well-known/security.txt
 Policy: https://rutvij01.github.io/Live/portfolio/security-policy.html
 
 # Security Policy
-# If you discover a security vulnerability, please report it responsibly.
-# Do not exploit the vulnerability or access data that doesn't belong to you.
-# Allow reasonable time for the issue to be resolved before public disclosure.
+# Please report potential security vulnerabilities responsibly.
+# Do not access, modify, delete, download, disclose, or retain data that does not belong to you.
+# Do not intentionally disrupt, overload, or degrade the availability of the website.
+# Please allow a reasonable opportunity for the issue to be reviewed and addressed before public disclosure.

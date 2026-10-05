@@ -1,66 +1,487 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- This page is intended primarily for website visitors and security researchers. -->
+    <meta name="robots" content="noindex, nofollow" />
+
     <title>Security Policy - Rutvij Bhatt Portfolio</title>
+
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #333; }
-        .contact { background: #f4f4f4; padding: 15px; border-radius: 5px; margin: 20px 0; }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.7;
+        background: #0a0a0a;
+        color: #e0e0e0;
+      }
+
+      h1 {
+        color: #00fff5;
+        border-bottom: 3px solid #00fff5;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: #00c2ff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        color: #ff6b6b;
+        margin-top: 30px;
+      }
+
+      .warning {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 107, 0.1),
+          rgba(255, 107, 107, 0.05)
+        );
+        padding: 20px;
+        border-left: 4px solid #ff6b6b;
+        border-radius: 8px;
+        margin: 25px 0;
+      }
+
+      .contact {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 245, 0.1),
+          rgba(0, 255, 245, 0.05)
+        );
+        padding: 20px;
+        border-left: 4px solid #00fff5;
+        border-radius: 8px;
+        margin: 25px 0;
+      }
+
+      .guidelines {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 194, 255, 0.1),
+          rgba(0, 194, 255, 0.05)
+        );
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .scope {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 245, 0.06),
+          rgba(0, 194, 255, 0.04)
+        );
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .safe-harbor {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 0, 0.08),
+          rgba(0, 255, 0, 0.03)
+        );
+        padding: 15px;
+        border-left: 4px solid #00ff88;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      a {
+        color: #00fff5;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 255, 245, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: #ff6b6b;
+        border-bottom-color: rgba(255, 107, 107, 0.6);
+        text-shadow: 0 0 8px rgba(255, 107, 107, 0.4);
+      }
+
+      ul,
+      ol {
+        padding-left: 25px;
+      }
+
+      li {
+        margin: 8px 0;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #00fff5, #00c2ff);
+        color: #000;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .back-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 255, 245, 0.3);
+        color: #000;
+      }
+
+      .emoji {
+        font-size: 1.2em;
+      }
+
+      .highlight {
+        color: #ff6b6b;
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
-    <h1>Security Policy</h1>
-    
-    <h2>Reporting Security Vulnerabilities</h2>
-    <p>If you discover a security vulnerability in this portfolio website, please report it responsibly:</p>
-    
-    <div class="contact">
-        <strong>Contact:</strong> rutvijbhatt207@gmail.com<br>
-        <strong>Response Time:</strong> Within 48 hours<br>
-        <strong>Languages:</strong> English
+  </head>
+
+  <body>
+    <h1><span class="emoji">🛡️</span> Security Policy</h1>
+
+    <div class="warning">
+      <h3><span class="emoji">⚠️</span> RESPONSIBLE DISCLOSURE</h3>
+
+      <p>
+        If you discover a potential security vulnerability in this portfolio
+        website, please report it responsibly using the contact information and
+        guidelines provided below.
+      </p>
+
+      <p>
+        This policy is intended to provide a clear process for responsible
+        security reporting regardless of where the researcher is located. It is
+        not a bug-bounty program and does not provide compensation for
+        vulnerability reports.
+      </p>
     </div>
-    
-    <h2>Guidelines</h2>
+
+    <h2>
+      <span class="emoji">🔐</span>
+      Reporting Security Vulnerabilities
+    </h2>
+
+    <p>
+      If you believe you have discovered a security vulnerability affecting this
+      portfolio website, please report it as soon as reasonably possible.
+    </p>
+
+    <div class="contact">
+      <p>
+        <strong>Contact:</strong>
+        <a href="mailto:rutvijbhatt207@gmail.com">rutvijbhatt207@gmail.com</a>
+      </p>
+
+      <p>
+        <strong>Preferred Language:</strong>
+        English
+      </p>
+
+      <p>
+        <strong>Response:</strong>
+        Reports will be reviewed as reasonably practicable. No specific response
+        or resolution time is guaranteed.
+      </p>
+    </div>
+
+    <h2><span class="emoji">📋</span> Responsible Disclosure Guidelines</h2>
+
+    <div class="guidelines">
+      <p>When investigating and reporting a potential vulnerability, please:</p>
+
+      <ul>
+        <li>
+          Act in good faith and avoid unnecessary disruption to the website or
+          its users.
+        </li>
+
+        <li>
+          Test only the systems, pages, resources, and functionality that are
+          within the scope of this policy.
+        </li>
+
+        <li>
+          Do not access, modify, delete, download, disclose, or retain data that
+          does not belong to you.
+        </li>
+
+        <li>
+          Do not intentionally degrade, interrupt, overload, or otherwise
+          disrupt the availability or performance of the website.
+        </li>
+
+        <li>
+          Do not use social engineering, phishing, physical attacks, credential
+          theft, or attacks against other individuals.
+        </li>
+
+        <li>
+          Avoid automated testing or scanning that could negatively affect the
+          website's availability or hosting infrastructure.
+        </li>
+
+        <li>
+          Do not publicly disclose the vulnerability before providing a
+          reasonable opportunity for it to be reviewed and addressed.
+        </li>
+
+        <li>
+          Provide sufficient technical information to allow the issue to be
+          understood and, where reasonably possible, reproduced.
+        </li>
+      </ul>
+    </div>
+
+    <h2><span class="emoji">📝</span> What to Include in a Report</h2>
+
+    <p>
+      To help with investigation, please include as much of the following
+      information as reasonably possible:
+    </p>
+
     <ul>
-        <li>Do not exploit the vulnerability or access data that doesn't belong to you</li>
-        <li>Do not perform actions that could harm the website or its users</li>
-        <li>Allow reasonable time for the issue to be resolved before public disclosure</li>
-        <li>Provide detailed information about the vulnerability and steps to reproduce it</li>
+      <li>Description of the suspected vulnerability</li>
+      <li>Affected URL, page, or functionality</li>
+      <li>Steps required to reproduce the issue</li>
+      <li>Expected behavior</li>
+      <li>Actual behavior</li>
+      <li>Potential security impact</li>
+      <li>Relevant screenshots, logs, or proof-of-concept information</li>
+      <li>Browser, operating system, or relevant testing environment</li>
     </ul>
-    
-    <h2>Scope</h2>
-    <p>This policy applies to:</p>
+
+    <p>
+      Please avoid including passwords, authentication tokens, personal
+      information, or other sensitive information in a vulnerability report
+      unless it is strictly necessary to demonstrate the issue.
+    </p>
+
+    <h2><span class="emoji">🌐</span> Scope</h2>
+
+    <div class="scope">
+      <p>
+        This policy applies to the following portfolio website and resources
+        that are directly controlled by or operated for the portfolio:
+      </p>
+
+      <ul>
+        <li>
+          Main portfolio website:
+          <br />
+          <a
+            href="https://rutvij01.github.io/Live/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://rutvij01.github.io/Live/portfolio/
+          </a>
+        </li>
+
+        <li>
+          Associated pages, files, and resources that are part of the portfolio
+          website and are directly controlled or maintained by the website
+          owner.
+        </li>
+      </ul>
+    </div>
+
+    <h2><span class="emoji">🚫</span> Out of Scope</h2>
+
+    <p>
+      The following activities and systems are outside the scope of this
+      security policy:
+    </p>
+
     <ul>
-        <li>The main portfolio website (https://rutvij01.github.io/Live/portfolio/)</li>
-        <li>All associated files and resources</li>
+      <li>
+        Third-party websites, applications, APIs, services, or infrastructure
+        that are not directly controlled by Rutvij Bhatt.
+      </li>
+
+      <li>
+        GitHub's infrastructure, GitHub accounts, or GitHub services themselves.
+      </li>
+
+      <li>Social engineering, phishing, or attacks against people.</li>
+
+      <li>
+        Physical attacks or attempts to gain unauthorized physical access.
+      </li>
+
+      <li>Denial-of-service or distributed denial-of-service testing.</li>
+
+      <li>
+        Spam, automated abuse, or activities intended to degrade availability.
+      </li>
+
+      <li>
+        Vulnerabilities that exist entirely within third-party software,
+        services, libraries, hosting infrastructure, or dependencies and are not
+        caused by the portfolio website's own implementation.
+      </li>
     </ul>
-    
-    <h2>Recognition</h2>
-    <p>Security researchers who responsibly disclose vulnerabilities will be acknowledged (with permission) in this page.</p>
-    
-    <p><button onclick="closeAndReturn()" style="background: none; border: none; color: #00fff5; text-decoration: underline; cursor: pointer; font-size: inherit;">← Back to Portfolio</button></p>
+
+    <h2><span class="emoji">🛡️</span> Good-Faith Testing</h2>
+
+    <div class="safe-harbor">
+      <p>
+        <strong>
+          Good-faith security research is welcome when performed responsibly and
+          within the scope of this policy.
+        </strong>
+      </p>
+
+      <p>
+        If you discover a potential vulnerability and follow these guidelines,
+        please report the issue before taking further action that could increase
+        risk to the website, its users, or its data.
+      </p>
+
+      <p>
+        Where appropriate and permitted by applicable law, good-faith
+        vulnerability research that follows this policy will be considered when
+        evaluating whether further action is necessary.
+      </p>
+
+      <p>
+        This policy does not grant permission to access systems or data that are
+        outside the stated scope, nor does it override applicable laws,
+        regulations, third-party terms, or hosting-provider policies.
+      </p>
+
+      <p>
+        Nothing in this policy creates a contractual promise to waive, release,
+        or limit any legal rights or remedies that may apply to security testing
+        activities.
+      </p>
+    </div>
+
+    <h2><span class="emoji">⏱️</span> Disclosure and Coordination</h2>
+
+    <p>
+      Please provide a reasonable opportunity for the issue to be reviewed and
+      addressed before publicly disclosing technical details.
+    </p>
+
+    <p>
+      The appropriate disclosure timeline may depend on the severity and
+      complexity of the vulnerability.
+    </p>
+
+    <p>
+      If coordinated disclosure is appropriate, the researcher and website owner
+      may communicate regarding the status and potential disclosure timeline.
+    </p>
+
+    <h2><span class="emoji">🏆</span> Recognition</h2>
+
+    <p>
+      Security researchers who responsibly disclose valid vulnerabilities may be
+      acknowledged on this page or another appropriate location,
+      <strong>only with their prior permission</strong>.
+    </p>
+
+    <p>
+      No monetary compensation, reward, employment opportunity, or other benefit
+      is guaranteed for submitting a security report.
+    </p>
+
+    <h2><span class="emoji">⚖️</span> Legal and Third-Party Considerations</h2>
+
+    <p>
+      This security policy is intended to establish a responsible disclosure
+      process for the portfolio website. It does not provide authorization to
+      test systems belonging to third parties.
+    </p>
+
+    <p>
+      This policy is intended to provide a responsible disclosure framework for
+      security research conducted from any jurisdiction. Researchers remain
+      responsible for complying with the laws, regulations, and third-party
+      terms applicable to their activities and location.
+    </p>
+
+    <p>
+      To the extent this policy has legal effect, it is governed by the
+      applicable laws of <strong>India</strong>, subject to any mandatory laws,
+      rights, or obligations that cannot legally be waived or modified.
+    </p>
+
+    <h2><span class="emoji">📧</span> Contact Information</h2>
+
+    <div class="contact">
+      <p>
+        <strong>Rutvij Bhatt</strong>
+        <br />
+        Full Stack Developer &amp; Data Scientist
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:rutvijbhatt207@gmail.com">rutvijbhatt207@gmail.com</a>
+      </p>
+
+      <p>
+        <strong>LinkedIn:</strong>
+        <a
+          href="https://www.linkedin.com/in/rutvij-bhatt-01"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          https://www.linkedin.com/in/rutvij-bhatt-01
+        </a>
+      </p>
+    </div>
+
+    <h2><span class="emoji">🔄</span> Changes to This Policy</h2>
+
+    <p>
+      This Security Policy may be updated from time to time to reflect changes
+      to the website, security practices, or applicable requirements.
+    </p>
+
+    <p>
+      The current version will be published on this page with an updated "Last
+      Updated" date.
+    </p>
+
+    <p>
+      <strong>Last Updated:</strong> October 5, 2026
+      <br />
+
+      <strong>Effective Date:</strong> October 5, 2026
+      <br />
+
+      <strong>Version:</strong> 2.0
+    </p>
+
+    <button onclick="closeAndReturn()" class="back-link">
+      ← Back to Portfolio
+    </button>
 
     <script>
-        function closeAndReturn() {
-            // Try to close the window/tab
-            if (window.opener) {
-                // If opened by another window, close this one
-                window.close();
-            } else {
-                // If opened directly, redirect to portfolio
-                window.location.href = './index.html';
-            }
+      function closeAndReturn() {
+        // Try to close the window/tab if it was opened by another window.
+        if (window.opener) {
+          window.close();
+        } else {
+          // Otherwise return to the portfolio.
+          window.location.href = "./index.html";
         }
-        
-        // Auto-close after 30 seconds if user doesn't interact
-        setTimeout(() => {
-            const userInteracted = document.body.scrollTop > 0 || document.documentElement.scrollTop > 0;
-            if (!userInteracted) {
-                closeAndReturn();
-            }
-        }, 30000);
+      }
     </script>
-</body>
+  </body>
 </html>
