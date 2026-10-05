@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   © 2026 Rutvij Bhatt. All rights reserved.
   Contact: rutvijbhatt207@gmail.com
@@ -7,11 +7,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="google-site-verification"
+      content="lskDcuFpOi-SaarebJNb7jtNTVvgkQC_DeDzy-kTZT4"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Security Headers (Only CSP works in meta tags) -->
-    <meta http-equiv="Content-Security-Policy" content="
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
       default-src 'self';
       script-src 'self' 'unsafe-inline';
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
@@ -22,58 +28,91 @@
       base-uri 'self';
       object-src 'none';
       upgrade-insecure-requests;
-    " />
+    "
+    />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    
+    <meta
+      http-equiv="Referrer-Policy"
+      content="strict-origin-when-cross-origin"
+    />
+
     <!-- SEO Meta Tags -->
-    <title>Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio</title>
-    <meta name="description" content="Rutvij Bhatt - Full Stack Developer & Data Scientist with expertise in Python, Java, React, AWS, Machine Learning. View my portfolio of innovative projects and professional experience." />
-    <meta name="keywords" content="Rutvij Bhatt, Full Stack Developer, Data Scientist, Python, Java, React, AWS, Machine Learning, Web Development, Portfolio" />
+    <title>
+      Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio
+    </title>
+    <meta
+      name="description"
+      content="Rutvij Bhatt - Full Stack Developer & Data Scientist with expertise in Python, Java, React, AWS, Machine Learning. View my portfolio of innovative projects and professional experience."
+    />
+    <meta
+      name="keywords"
+      content="Rutvij Bhatt, Full Stack Developer, Data Scientist, Python, Java, React, AWS, Machine Learning, Web Development, Portfolio"
+    />
     <meta name="author" content="Rutvij Bhatt" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
-    
+
     <!-- Open Graph Meta Tags (Social Media) -->
-    <meta property="og:title" content="Rutvij Bhatt - Full Stack Developer & Data Scientist" />
-    <meta property="og:description" content="Innovative Full Stack Developer & Data Scientist specializing in Python, Java, React, and AWS. Explore my portfolio of cutting-edge projects." />
-    <meta property="og:image" content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp" />
-    <meta property="og:url" content="https://rutvij01.github.io/Live/portfolio/" />
+    <meta
+      property="og:title"
+      content="Rutvij Bhatt - Full Stack Developer & Data Scientist"
+    />
+    <meta
+      property="og:description"
+      content="Innovative Full Stack Developer & Data Scientist specializing in Python, Java, React, and AWS. Explore my portfolio of cutting-edge projects."
+    />
+    <meta
+      property="og:image"
+      content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://rutvij01.github.io/Live/portfolio/"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Rutvij Bhatt Portfolio" />
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rutvij Bhatt - Full Stack Developer & Data Scientist" />
-    <meta name="twitter:description" content="Innovative Full Stack Developer & Data Scientist. View my portfolio of Python, Java, React, and AWS projects." />
-    <meta name="twitter:image" content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp" />
+    <meta
+      name="twitter:title"
+      content="Rutvij Bhatt - Full Stack Developer & Data Scientist"
+    />
+    <meta
+      name="twitter:description"
+      content="Innovative Full Stack Developer & Data Scientist. View my portfolio of Python, Java, React, and AWS projects."
+    />
+    <meta
+      name="twitter:image"
+      content="https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp"
+    />
     <meta name="twitter:creator" content="@rutvij01" />
-    
+
     <!-- Favicon and Icons -->
     <link rel="icon" href="img/siteicon.webp" />
     <link rel="apple-touch-icon" href="img/siteicon.webp" />
     <link rel="canonical" href="https://rutvij01.github.io/Live/portfolio/" />
-    
+
     <!-- Preload Critical Resources for Better LCP -->
     <link rel="preload" as="style" href="style.css" />
     <link rel="preload" as="script" href="js/gsap.min.js" />
     <link rel="preload" as="script" href="js/ScrollTrigger.min.js" />
     <link rel="preload" as="script" href="js/app.js" />
-    
+
     <!-- Preload Critical Images (Above the fold) -->
     <link rel="preload" as="image" href="img/background.webp" />
     <link rel="preload" as="image" href="img/fog_7.webp" />
     <link rel="preload" as="image" href="img/mountain_1.webp" />
     <link rel="preload" as="image" href="img/mountain_10.webp" />
-    
+
     <!-- Preload Critical Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    
+
     <!-- DNS Prefetch for External Resources -->
     <link rel="dns-prefetch" href="https://formspree.io" />
-    
+
     <!-- Critical CSS for Loader (Inline for faster LCP) -->
     <style>
       /* Critical loader styles - inline for immediate rendering */
@@ -91,19 +130,19 @@
         opacity: 1;
         transition: opacity 0.5s ease-out;
       }
-      
+
       .lds-ripple,
       .lds-ripple div {
         box-sizing: border-box;
       }
-      
+
       .lds-ripple {
         display: inline-block;
         position: relative;
         width: 80px;
         height: 80px;
       }
-      
+
       .lds-ripple div {
         position: absolute;
         border: 4px solid rgb(18, 109, 112);
@@ -111,11 +150,11 @@
         border-radius: 50%;
         animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
       }
-      
+
       .lds-ripple div:nth-child(2) {
         animation-delay: -0.5s;
       }
-      
+
       @keyframes lds-ripple {
         0% {
           top: 36px;
@@ -146,7 +185,7 @@
           opacity: 0;
         }
       }
-      
+
       /* Critical body styles */
       body {
         margin: 0;
@@ -155,25 +194,25 @@
         overflow-x: hidden;
         visibility: hidden; /* Hide everything initially */
       }
-      
+
       /* Show body only after loader is ready */
       body.loaded {
         visibility: visible;
       }
-      
+
       /* Ensure main content is hidden until animations start */
       #main-content {
         opacity: 0;
         visibility: hidden;
       }
-      
+
       /* Show main content when animations begin */
       #main-content.animation-ready {
         opacity: 1;
         visibility: visible;
       }
     </style>
-    
+
     <!-- Optimized Font Loading with font-display -->
     <link
       rel="preload"
@@ -184,7 +223,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <noscript>
       <link
@@ -192,63 +231,63 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
       />
     </noscript>
-    
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Rutvij Bhatt",
-      "jobTitle": "Full Stack Developer & Data Scientist",
-      "description": "Innovative Full Stack Developer and Data Scientist with expertise in Python, Java, React, AWS, and Machine Learning",
-      "url": "https://rutvij01.github.io/Live/portfolio/",
-      "image": "https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp",
-      "sameAs": [
-        "https://github.com/Rutvij01",
-        "https://www.linkedin.com/in/rutvij-bhatt-01"
-      ],
-      "alumniOf": [
-        {
-          "@type": "EducationalOrganization",
-          "name": "Concordia University",
-          "location": "Montreal, Quebec, Canada"
-        },
-        {
-          "@type": "EducationalOrganization", 
-          "name": "Gujarat Technological University",
-          "location": "Ahmedabad, Gujarat, India"
-        }
-      ],
-      "knowsAbout": [
-        "Python Programming",
-        "Java Development", 
-        "React.js",
-        "AWS Cloud Services",
-        "Machine Learning",
-        "Data Science",
-        "Web Development",
-        "Full Stack Development"
-      ],
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "IBM Data Science Professional Certificate",
-          "credentialCategory": "Professional Certificate",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "IBM"
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rutvij Bhatt",
+        "jobTitle": "Full Stack Developer & Data Scientist",
+        "description": "Innovative Full Stack Developer and Data Scientist with expertise in Python, Java, React, AWS, and Machine Learning",
+        "url": "https://rutvij01.github.io/Live/portfolio/",
+        "image": "https://rutvij01.github.io/Live/portfolio/img/sitelogo.webp",
+        "sameAs": [
+          "https://github.com/Rutvij01",
+          "https://www.linkedin.com/in/rutvij-bhatt-01"
+        ],
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Concordia University",
+            "location": "Montreal, Quebec, Canada"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Gujarat Technological University",
+            "location": "Ahmedabad, Gujarat, India"
           }
-        }
-      ]
-    }
+        ],
+        "knowsAbout": [
+          "Python Programming",
+          "Java Development",
+          "React.js",
+          "AWS Cloud Services",
+          "Machine Learning",
+          "Data Science",
+          "Web Development",
+          "Full Stack Development"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "IBM Data Science Professional Certificate",
+            "credentialCategory": "Professional Certificate",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "IBM"
+            }
+          }
+        ]
+      }
     </script>
-    
+
     <!-- Google Fonts - Optimized Loading -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <noscript>
       <link
@@ -256,7 +295,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
       />
     </noscript>
-    
+
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -265,7 +304,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
       media="print"
-      onload="this.media='all'"
+      onload="this.media = 'all'"
     />
     <noscript>
       <link
@@ -290,12 +329,12 @@
           border-radius: 5px;
           z-index: 1001;
         }
-        
+
         /* When JavaScript is disabled, hide loader and show content */
         body {
           visibility: visible !important;
         }
-        
+
         #loader {
           display: none !important;
         }
@@ -312,7 +351,11 @@
     </noscript>
 
     <!-- Loader - Always visible initially -->
-    <div id="loader" class="loader" style="display: flex; opacity: 1; visibility: visible;">
+    <div
+      id="loader"
+      class="loader"
+      style="display: flex; opacity: 1; visibility: visible"
+    >
       <div class="lds-ripple">
         <div></div>
         <div></div>
@@ -323,7 +366,7 @@
       <nav>
         <a href="#top" id="home" aria-label="Rutvij Bhatt - Home">
           <picture>
-            <source srcset="img/sitelogo.webp" type="image/webp">
+            <source srcset="img/sitelogo.webp" type="image/webp" />
             <img src="img/sitelogo.png" alt="Rutvij Bhatt logo" class="logo" />
           </picture>
         </a>
@@ -345,7 +388,14 @@
             >
           </li>
           <li class="menu" id="menu">
-            <a href="#" aria-label="Navigation menu" role="button" aria-expanded="false" aria-controls="menu-items" tabindex="0">
+            <a
+              href="#"
+              aria-label="Navigation menu"
+              role="button"
+              aria-expanded="false"
+              aria-controls="menu-items"
+              tabindex="0"
+            >
               <div class="bar"></div>
             </a>
             <div class="menu-items" id="menu-items">
@@ -378,8 +428,10 @@
 
     <main id="main-content">
       <!-- Hidden H1 for SEO - not visible but helps search engines -->
-      <h1 class="sr-only">Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio</h1>
-      
+      <h1 class="sr-only">
+        Rutvij Bhatt - Full Stack Developer & Data Scientist Portfolio
+      </h1>
+
       <div id="top">
         <div class="vignette hide"></div>
         <img
@@ -454,7 +506,13 @@
           data-distance="2000"
           class="parallax mountain-7"
         />
-        <div class="parallax text" data-speedx="0.07" data-speedy="0.07" data-speedz="0" data-rotation="0.11">
+        <div
+          class="parallax text"
+          data-speedx="0.07"
+          data-speedy="0.07"
+          data-speedz="0"
+          data-rotation="0.11"
+        >
           <div>Rutvij</div>
           <div>Bhatt</div>
         </div>
@@ -541,7 +599,15 @@
         />
         <img src="img/sun_rays.webp" class="sun-rays hide" />
         <img src="img/black_shadow.webp" class="black-shadow hide" />
-        <img src="img/fog_1.webp" data-speedx="0.12" data-speedy="0.01" data-speedz="0" data-rotation="0" data-distance="4200" class="parallax fog-1" />
+        <img
+          src="img/fog_1.webp"
+          data-speedx="0.12"
+          data-speedy="0.01"
+          data-speedz="0"
+          data-rotation="0"
+          data-distance="4200"
+          class="parallax fog-1"
+        />
       </div>
     </main>
 
@@ -568,8 +634,12 @@
 
         <div class="card sparkle-trigger">
           <picture>
-            <source srcset="img/GTU.webp" type="image/webp">
-            <img src="img/GTU.png" alt="Gujarat Technological University logo" loading="lazy" />
+            <source srcset="img/GTU.webp" type="image/webp" />
+            <img
+              src="img/GTU.png"
+              alt="Gujarat Technological University logo"
+              loading="lazy"
+            />
           </picture>
           <div class="card-content">
             <h3>Gujarat Technological University</h3>
@@ -583,8 +653,12 @@
 
         <div class="card sparkle-trigger">
           <picture>
-            <source srcset="img/Concordia-University.webp" type="image/webp">
-            <img src="img/Concordia-University.png" alt="Concordia University logo" loading="lazy" />
+            <source srcset="img/Concordia-University.webp" type="image/webp" />
+            <img
+              src="img/Concordia-University.png"
+              alt="Concordia University logo"
+              loading="lazy"
+            />
           </picture>
           <div class="card-content">
             <h3>Concordia University</h3>
@@ -604,10 +678,19 @@
         <div class="skills-inner">
           <!-- Globe area -->
           <div class="globe-wrap">
-            <div class="globe" id="globe" role="application" aria-label="Interactive skills showcase - click on orbiting icons to view details">
+            <div
+              class="globe"
+              id="globe"
+              role="application"
+              aria-label="Interactive skills showcase - click on orbiting icons to view details"
+            >
               <picture>
-                <source srcset="img/skills.webp" type="image/webp">
-                <img src="img/skills.png" alt="Interactive skills globe showing technical expertise" class="globe-center" />
+                <source srcset="img/skills.webp" type="image/webp" />
+                <img
+                  src="img/skills.png"
+                  alt="Interactive skills globe showing technical expertise"
+                  class="globe-center"
+                />
               </picture>
               <div class="orbit" id="orbit"></div>
             </div>
@@ -668,7 +751,11 @@
           <div class="skill-item" data-img="img/Postman.webp" data-percent="55">
             <h3>Postman</h3>
           </div>
-          <div class="skill-item" data-img="img/Cplusplus.webp" data-percent="60">
+          <div
+            class="skill-item"
+            data-img="img/Cplusplus.webp"
+            data-percent="60"
+          >
             <h3>C++</h3>
           </div>
           <div
@@ -714,7 +801,7 @@
                   rel="noopener noreferrer"
                 >
                   <picture>
-                    <source srcset="img/silwerwingAHM.webp" type="image/webp">
+                    <source srcset="img/silwerwingAHM.webp" type="image/webp" />
                     <img
                       src="img/silwerwingAHM.png"
                       alt="Silverwing Technologies Logo"
@@ -850,7 +937,7 @@
                   rel="noopener noreferrer"
                 >
                   <picture>
-                    <source srcset="img/GDSC.webp" type="image/webp">
+                    <source srcset="img/GDSC.webp" type="image/webp" />
                     <img
                       src="img/GDSC.jpeg"
                       alt="GDSC Logo"
@@ -1036,8 +1123,12 @@
           <div class="certificate-card" data-cert-index="0">
             <div class="certificate-glow"></div>
             <picture>
-              <source srcset="img/Coursera.webp" type="image/webp">
-              <img src="img/Coursera.png" alt="IBM Data Science Certificate from Coursera" loading="lazy" />
+              <source srcset="img/Coursera.webp" type="image/webp" />
+              <img
+                src="img/Coursera.png"
+                alt="IBM Data Science Certificate from Coursera"
+                loading="lazy"
+              />
             </picture>
             <h3>Data Science Professional Certificate (V2)</h3>
             <p>Coursera (Verified: IBM) · 2023</p>
@@ -1081,8 +1172,12 @@
           <div class="certificate-card" data-cert-index="3">
             <div class="certificate-glow"></div>
             <picture>
-              <source srcset="img/GSAConcordia.webp" type="image/webp">
-              <img src="img/GSAConcordia.png" alt="GSA Concordia" loading="lazy" />
+              <source srcset="img/GSAConcordia.webp" type="image/webp" />
+              <img
+                src="img/GSAConcordia.png"
+                alt="GSA Concordia"
+                loading="lazy"
+              />
             </picture>
             <h3>Python For Machine Learning - Workshop</h3>
             <p>Graduate Students' Association - Concordia University · 2021</p>
@@ -1092,8 +1187,12 @@
           <div class="certificate-card" data-cert-index="4">
             <div class="certificate-glow"></div>
             <picture>
-              <source srcset="img/IEEESilverOak.webp" type="image/webp">
-              <img src="img/IEEESilverOak.jpeg" alt="IEEE SilverOak" loading="lazy" />
+              <source srcset="img/IEEESilverOak.webp" type="image/webp" />
+              <img
+                src="img/IEEESilverOak.jpeg"
+                alt="IEEE SilverOak"
+                loading="lazy"
+              />
             </picture>
             <h3>Getting into Data Science using Python - Workshop</h3>
             <p>Silver Oak University IEEE SB · 2020</p>
@@ -1117,8 +1216,12 @@
           <div class="certificate-card" data-cert-index="6">
             <div class="certificate-glow"></div>
             <picture>
-              <source srcset="img/SpokenTutorial.webp" type="image/webp">
-              <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" loading="lazy" />
+              <source srcset="img/SpokenTutorial.webp" type="image/webp" />
+              <img
+                src="img/SpokenTutorial.jpeg"
+                alt="SpokenTutorial"
+                loading="lazy"
+              />
             </picture>
             <h3>C++ Training</h3>
             <p>Spoken Tutorial · 2018</p>
@@ -1128,8 +1231,12 @@
           <div class="certificate-card" data-cert-index="7">
             <div class="certificate-glow"></div>
             <picture>
-              <source srcset="img/SpokenTutorial.webp" type="image/webp">
-              <img src="img/SpokenTutorial.jpeg" alt="SpokenTutorial" loading="lazy" />
+              <source srcset="img/SpokenTutorial.webp" type="image/webp" />
+              <img
+                src="img/SpokenTutorial.jpeg"
+                alt="SpokenTutorial"
+                loading="lazy"
+              />
             </picture>
             <h3>C Training</h3>
             <p>Spoken Tutorial · 2017</p>
@@ -1253,9 +1360,20 @@
             <p>Built with ❤️ using CSS · GSAP · Vanilla JS</p>
             <p class="copyright-notice">
               <small>
-                🚫 <strong>Unauthorized use prohibited.</strong> 
-                <a href="terms-of-use.html" target="_blank" rel="noopener noreferrer">Terms of Use</a> · 
-                <a href="security-policy.html" target="_blank" rel="noopener noreferrer">Security Policy</a>
+                🚫 <strong>Unauthorized use prohibited.</strong>
+                <a
+                  href="terms-of-use.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Terms of Use</a
+                >
+                ·
+                <a
+                  href="security-policy.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Security Policy</a
+                >
               </small>
             </p>
           </div>
@@ -1269,10 +1387,10 @@
     <script>
       // Security: Disable right-click context menu (optional - can be bypassed)
       // document.addEventListener('contextmenu', e => e.preventDefault());
-      
+
       // Security: Disable F12, Ctrl+Shift+I, Ctrl+U (optional - can be bypassed)
       // document.addEventListener('keydown', function(e) {
-      //   if (e.key === 'F12' || 
+      //   if (e.key === 'F12' ||
       //       (e.ctrlKey && e.shiftKey && e.key === 'I') ||
       //       (e.ctrlKey && e.key === 'u')) {
       //     e.preventDefault();
@@ -1282,14 +1400,14 @@
       // SIMPLIFIED AND ROBUST LOADER IMPLEMENTATION
       let contentShown = false;
       let loaderTimeout;
-      
+
       // Hide content initially (but keep loader visible)
       document.body.style.visibility = "hidden";
-      
+
       function showContent() {
         if (contentShown) return;
         contentShown = true;
-        
+
         const loader = document.getElementById("loader");
         if (loader) {
           loader.style.transition = "opacity 0.5s ease-out";
@@ -1298,15 +1416,15 @@
             loader.style.display = "none";
           }, 500);
         }
-        
+
         // Show content
         document.body.style.visibility = "visible";
-        
+
         if (loaderTimeout) {
           clearTimeout(loaderTimeout);
         }
       }
-      
+
       function ensureLoaderVisible() {
         const loader = document.getElementById("loader");
         if (loader) {
@@ -1317,10 +1435,10 @@
         // Hide content while loading
         document.body.style.visibility = "hidden";
       }
-      
+
       // Ensure loader is visible immediately
       ensureLoaderVisible();
-      
+
       // Primary loading detection
       document.onreadystatechange = function () {
         if (document.readyState === "loading") {
@@ -1329,23 +1447,23 @@
           showContent();
         }
       };
-      
+
       // Backup triggers
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         ensureLoaderVisible();
       });
-      
-      window.addEventListener('load', function() {
+
+      window.addEventListener("load", function () {
         setTimeout(showContent, 100);
       });
-      
+
       // Safety timeout - always show content after 10 seconds
-      loaderTimeout = setTimeout(function() {
+      loaderTimeout = setTimeout(function () {
         showContent();
       }, 10000);
-      
+
       // Progressive loading check
-      setTimeout(function() {
+      setTimeout(function () {
         if (!contentShown && document.readyState !== "loading") {
           showContent();
         }
