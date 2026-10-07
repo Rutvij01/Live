@@ -147,16 +147,14 @@ nav picture {
 }
 
 * {
-  /* Prevent text/img/link selection on double clicks */
-  -webkit-user-select: none; /* Chrome, Safari, Edge (Blink/WebKit) */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* old IE/Edge */
-  user-select: none; /* Standard property */
-  /* ---- Prevent unwanted blue selection / tap highlight ---- */
-  -webkit-tap-highlight-color: transparent; /* removes mobile tap highlight */
-  /* Prevent text/img/link selection on double clicks drag*/
-  -webkit-user-drag: none; /* Safari/Chrome */
-  user-drag: none; /* Standard (not widely supported) */
+  /* Keep mobile tap feedback unobtrusive without disabling text selection. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+a {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 ::-webkit-scrollbar {
@@ -198,7 +196,9 @@ nav {
   align-items: center;
   border-radius: 30px;
   /* overflow: hidden; */
-  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease;
   /* Added background-color transition */
 }
 
@@ -367,7 +367,9 @@ header ul a {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 /* Add margin between menu items */
@@ -555,7 +557,9 @@ main {
   text-align: center;
   text-transform: uppercase;
   color: #f5faff; /* soft white, not pure white to avoid harshness */
-  text-shadow: 0 0 10px rgba(0, 255, 245, 0.6), 0 0 20px rgba(0, 255, 245, 0.4),
+  text-shadow:
+    0 0 10px rgba(0, 255, 245, 0.6),
+    0 0 20px rgba(0, 255, 245, 0.4),
     0 0 40px rgba(0, 255, 245, 0.2);
   pointer-events: auto;
 }
@@ -970,9 +974,6 @@ main {
   box-shadow: inset 0px 0px 15px rgba(13, 192, 195, 0.7);
   position: relative;
   padding: 5% 5% 0% 5%;
-}
-
-.rest {
   opacity: 0;
   pointer-events: none;
   transition: opacity 1s ease;
@@ -1016,7 +1017,9 @@ main {
   background: white;
   opacity: 0;
   box-shadow: 0 0 0vw 0vw yellow;
-  animation: drift ease alternate infinite, flash ease infinite;
+  animation:
+    drift ease alternate infinite,
+    flash ease infinite;
 }
 
 /* ---------------------------
@@ -1509,10 +1512,6 @@ main {
 #experience,
 #projects,
 #certificates,
-#contact {
-  scroll-margin-top: 8vh; /* smooth scroll alignment if using nav links */
-}
-
 #education {
   display: flex;
   justify-content: center;
@@ -1709,9 +1708,12 @@ main {
   z-index: 6;
   overflow: visible;
   pointer-events: auto;
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
     border-color 0.25s ease;
-  box-shadow: 0 0 7px rgba(13, 192, 195, 0.25),
+  box-shadow:
+    0 0 7px rgba(13, 192, 195, 0.25),
     0 0 20px rgba(13, 192, 195, 0.12);
 }
 
@@ -1728,7 +1730,8 @@ main {
 .skill-node:hover,
 .skill-node.active {
   transform: scale(1.18);
-  box-shadow: 0 0 30px rgba(13, 192, 195, 0.3),
+  box-shadow:
+    0 0 30px rgba(13, 192, 195, 0.3),
     0 0 40px rgba(13, 192, 195, 0.12);
   border-color: #0dc0c3;
 }
@@ -1745,7 +1748,9 @@ main {
   transform: scale(0.96);
   max-width: 360px;
   margin-left: -1.5rem;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 /* Smooth fade in/out on large screens */
@@ -1775,7 +1780,9 @@ main {
 .detail-image img {
   object-fit: contain;
   filter: drop-shadow(0 0 8px rgba(13, 192, 195, 0.5));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
   color: #fff;
 }
 
@@ -1835,23 +1842,27 @@ main {
 }
 
 .progress-circle.glow-ready {
-  box-shadow: 0 0 25px rgba(13, 192, 195, 0.55),
+  box-shadow:
+    0 0 25px rgba(13, 192, 195, 0.55),
     0 0 45px rgba(13, 192, 195, 0.25);
 }
 
 .progress-circle.glow-ready:hover {
-  box-shadow: 0 0 35px rgba(13, 192, 195, 0.8),
+  box-shadow:
+    0 0 35px rgba(13, 192, 195, 0.8),
     0 0 65px rgba(13, 192, 195, 0.35);
 }
 
 @keyframes glowPulse {
   0%,
   100% {
-    box-shadow: 0 0 24px rgba(13, 192, 195, 0.6),
+    box-shadow:
+      0 0 24px rgba(13, 192, 195, 0.6),
       0 0 44px rgba(13, 192, 195, 0.12);
   }
   50% {
-    box-shadow: 0 0 42px rgba(13, 192, 195, 1),
+    box-shadow:
+      0 0 42px rgba(13, 192, 195, 1),
       0 0 72px rgba(13, 192, 195, 0.28);
   }
 }
@@ -1907,7 +1918,10 @@ main {
     justify-self: start;
     max-width: 340px;
     margin-left: -5rem; /* pull closer to center */
-    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.5s ease,
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease,
+      visibility 0.5s ease,
       margin-left 0.6s ease;
   }
 
@@ -1951,7 +1965,10 @@ main {
     width: 100%;
     left: 50%;
     transform: translateX(-50%) scale(0.96); /* Force perfect horizontal center */
-    transition: opacity 0.6s ease, transform 0.6s ease, max-height 0.6s ease;
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease,
+      max-height 0.6s ease;
   }
 
   .skill-detail.show {
@@ -2194,7 +2211,9 @@ main {
     rgba(0, 255, 255, 0.1) 100%
   );
   border-radius: 50%;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.9), 0 0 40px rgba(0, 255, 255, 0.6);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.9),
+    0 0 40px rgba(0, 255, 255, 0.6);
   animation: dot-pulse 2.8s ease-in-out infinite alternate;
 }
 @keyframes dot-pulse {
@@ -2497,22 +2516,17 @@ main {
 .project-line {
   display: block;
   margin: 0.6rem 0;
-  white-space: pre-wrap;
-  word-break: break-word;
-  text-indent: 1.5rem;
-  padding-left: 0.5rem;
-  overflow: hidden;
-  transition: transform 0.18s ease, text-shadow 0.18s ease, color 0.18s ease;
-  cursor: pointer;
-}
-
-/* Redundant display rule merged here */
-.project-line {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: break-word;
-  padding-left: 1.2rem; /* indentation for wrapped lines */
   text-indent: -1.2rem; /* aligns first line with prompt */
+  padding-left: 1.2rem; /* indentation for wrapped lines */
+  overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    text-shadow 0.18s ease,
+    color 0.18s ease;
+  cursor: pointer;
 }
 
 /* Inline elements inside each project */
@@ -2611,7 +2625,9 @@ main {
 .detail-terminal.highlight-glow {
   box-shadow: 0 0 14px 4px rgba(0, 255, 255, 0.7);
   border-color: #00ffff;
-  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 /* --- Header (same as main terminal) --- */
@@ -2714,7 +2730,9 @@ main {
   color: #ff006e;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
 }
 .d-exit .exit-text:hover {
   color: #ff4f94;
@@ -2797,7 +2815,8 @@ main {
   border: 1px solid rgba(0, 255, 255, 0.18);
   border-radius: 18px;
   backdrop-filter: blur(2px);
-  box-shadow: 0 0 24px rgba(0, 255, 255, 0.12),
+  box-shadow:
+    0 0 24px rgba(0, 255, 255, 0.12),
     inset 0 0 10px rgba(0, 255, 255, 0.06);
   padding: 4rem 1rem;
   display: flex;
@@ -2885,7 +2904,9 @@ main {
   height: 200%;
   background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent 60%);
   transform: translate(-50%, -50%) scale(1);
-  transition: opacity 0.8s ease, transform 1s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 1s ease;
   opacity: 0;
   z-index: 0;
 }
@@ -2905,13 +2926,13 @@ main {
   border-radius: 999px;
   font-size: 0.86rem;
   background: rgba(0, 0, 0, 0.03);
-  box-shadow: 0 0 24px rgba(0, 255, 255, 0.12),
+  box-shadow:
+    0 0 24px rgba(0, 255, 255, 0.12),
     inset 0 0 10px rgba(0, 255, 255, 0.06);
   transition: all 0.3s ease;
   pointer-events: auto; /* make link clickable */
-  cursor: pointer; /* pointer cursor only on link */
+  cursor: pointer;
   z-index: 5;
-  cursor: pointer; /* hand cursor on link only */
 }
 
 .view-btn:hover {
@@ -2977,6 +2998,7 @@ main {
    CONTACT — Neural Pulse Interface (Final v2)
 ======================================================= */
 #contact {
+  scroll-margin-top: 8vh;
   position: relative;
   min-height: auto;
   display: flex;
@@ -3061,7 +3083,9 @@ main {
   font-size: 0.9rem;
   min-height: 1.2em;
   opacity: 0;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Social Links */
@@ -3089,7 +3113,9 @@ main {
   );
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 0.4s, transform 0.4s;
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
 }
 .social-links a:hover::before {
   opacity: 1;

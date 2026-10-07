@@ -11,10 +11,9 @@
       name="google-site-verification"
       content="lskDcuFpOi-SaarebJNb7jtNTVvgkQC_DeDzy-kTZT4"
     />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Security Headers (Only CSP works in meta tags) -->
+    <!-- Security Policy Metadata -->
     <meta
       http-equiv="Content-Security-Policy"
       content="
@@ -30,7 +29,6 @@
       upgrade-insecure-requests;
     "
     />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta
       http-equiv="Referrer-Policy"
       content="strict-origin-when-cross-origin"
@@ -44,13 +42,8 @@
       name="description"
       content="Rutvij Bhatt - Full Stack Developer & Data Scientist with expertise in Python, Java, React, AWS, Machine Learning. View my portfolio of innovative projects and professional experience."
     />
-    <meta
-      name="keywords"
-      content="Rutvij Bhatt, Full Stack Developer, Data Scientist, Python, Java, React, AWS, Machine Learning, Web Development, Portfolio"
-    />
     <meta name="author" content="Rutvij Bhatt" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
 
     <!-- Open Graph Meta Tags (Social Media) -->
     <meta
@@ -282,20 +275,6 @@
       }
     </script>
 
-    <!-- Google Fonts - Optimized Loading -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;800&display=swap"
-      />
-    </noscript>
-
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -320,14 +299,72 @@
         #noscript-message {
           display: block !important;
           position: fixed;
-          top: 15%;
+          top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          background-color: rgba(255, 0, 0, 0.8);
-          color: #fff;
-          padding: 20px;
-          border-radius: 5px;
+
+          width: min(90vw, 520px);
+          box-sizing: border-box;
+          padding: 28px 30px;
+
+          background: linear-gradient(
+            135deg,
+            rgba(8, 18, 32, 0.98),
+            rgba(5, 10, 20, 0.98)
+          );
+
+          color: #e8faff;
+          border: 1px solid rgba(0, 255, 245, 0.45);
+          border-radius: 14px;
+
+          box-shadow:
+            0 0 0 1px rgba(0, 255, 245, 0.08),
+            0 0 30px rgba(0, 255, 245, 0.12),
+            0 20px 60px rgba(0, 0, 0, 0.5);
+
+          font-family: inherit;
+          line-height: 1.6;
+          text-align: center;
+
           z-index: 1001;
+
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+        }
+
+        #noscript-message::before {
+          content: "SYSTEM NOTICE";
+          display: block;
+          margin-bottom: 10px;
+
+          color: #00fff5;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+        }
+
+        #noscript-message strong {
+          display: block;
+          margin-bottom: 8px;
+
+          color: #ffffff;
+          font-size: 1.05rem;
+          font-weight: 600;
+        }
+
+        #noscript-message p {
+          margin: 0;
+
+          color: rgba(232, 250, 255, 0.78);
+          font-size: 0.92rem;
+        }
+
+        @media (max-width: 480px) {
+          #noscript-message {
+            width: calc(100vw - 32px);
+            padding: 24px 20px;
+          }
         }
 
         /* When JavaScript is disabled, hide loader and show content */
@@ -346,7 +383,10 @@
     <!-- JavaScript Disabled Message -->
     <noscript>
       <div id="noscript-message">
-        <p>Please enable JavaScript for the best experience on this website.</p>
+        <strong>JavaScript is disabled</strong>
+        <p>
+          Please enable JavaScript to experience the full interactive portfolio.
+        </p>
       </div>
     </noscript>
 
@@ -1269,8 +1309,7 @@
                 placeholder="Name"
                 autocomplete="name"
                 maxlength="100"
-                pattern="[A-Za-z\s\-\.]{2,100}"
-                title="Name should contain only letters, spaces, hyphens, and dots (2-100 characters)"
+                title="Please enter a name between 2 and 100 characters"
               />
             </div>
             <div class="input-group">
@@ -1283,7 +1322,6 @@
                 placeholder="Email"
                 autocomplete="email"
                 maxlength="254"
-                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}"
                 title="Please enter a valid email address"
               />
             </div>

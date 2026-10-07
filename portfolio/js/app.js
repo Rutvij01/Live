@@ -9,20 +9,20 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   // Show body immediately when DOM is ready
-  document.body.classList.add('loaded');
-  
-  // Force scroll to top on page load for proper animation
-  window.scrollTo(0, 0);
-  
-  // Prevent browser from restoring scroll position
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+  document.body.classList.add("loaded");
+
+  // Prevent browser from restoring a previous scroll position.
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
   }
 
+  // Force scroll to top on page load for proper animation.
+  window.scrollTo(0, 0);
+
   // Show main content when ready for animations
-  const mainContent = document.getElementById('main-content');
+  const mainContent = document.getElementById("main-content");
   if (mainContent) {
-    mainContent.classList.add('animation-ready');
+    mainContent.classList.add("animation-ready");
   }
 
   // WebP fallback for parallax images (extra safety for very old browsers)
@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return new Promise((resolve) => {
       const webP = new Image();
       webP.onload = webP.onerror = () => resolve(webP.height === 2);
-      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+      webP.src =
+        "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
     });
   }
 
@@ -38,9 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
   checkWebPSupport().then((hasWebP) => {
     if (!hasWebP) {
       // Replace .webp with .png for parallax images in very old browsers
-      document.querySelectorAll('.parallax img[src$=".webp"]').forEach(img => {
-        img.src = img.src.replace('.webp', '.png');
-      });
+      document
+        .querySelectorAll('.parallax img[src$=".webp"]')
+        .forEach((img) => {
+          img.src = img.src.replace(".webp", ".png");
+        });
     }
   });
 
@@ -52,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector("nav");
   const logo = document.getElementById("home");
   const menuLinks = document.querySelectorAll(".menu-items a");
+  const menuButton = hamburgerMenu.querySelector("a");
 
   // Prevent dragging of <a> and <img> elements.
   // Stop them from being selected or “picked up” when double-clicked.
@@ -111,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const clickedElement = event.target;
       if (
         Array.from(parallaxElements).some((item) =>
-          item.contains(clickedElement)
+          item.contains(clickedElement),
         )
       ) {
         event.stopPropagation();
@@ -124,10 +128,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleMenu() {
     const isActive = hamburgerMenu.classList.toggle("active");
     menuItems.classList.toggle("active");
-    
+
     // Update ARIA attributes for accessibility
-    const menuButton = hamburgerMenu.querySelector('a');
-    menuButton.setAttribute('aria-expanded', isActive.toString());
+    menuButton.setAttribute("aria-expanded", isActive.toString());
   }
 
   hamburgerMenu.addEventListener("click", function (e) {
@@ -149,25 +152,24 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      
+
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
-      
+
       if (targetElement) {
         // Force close the menu by temporarily disabling hover effects
         hamburgerMenu.classList.add("force-close");
         hamburgerMenu.classList.remove("active");
         menuItems.classList.remove("active");
-        
+
         // Update ARIA attributes
-        const menuButton = hamburgerMenu.querySelector('a');
-        menuButton.setAttribute('aria-expanded', 'false');
-        
+        menuButton.setAttribute("aria-expanded", "false");
+
         // Remove force-close class after menu closes
         setTimeout(() => {
           hamburgerMenu.classList.remove("force-close");
         }, 500);
-        
+
         // Scroll to the target element
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
@@ -178,19 +180,18 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.key === "Enter") {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const targetId = this.getAttribute("href");
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
           // For keyboard users, close immediately
           hamburgerMenu.classList.remove("active");
           menuItems.classList.remove("active");
-          
+
           // Update ARIA attributes
-          const menuButton = hamburgerMenu.querySelector('a');
-          menuButton.setAttribute('aria-expanded', 'false');
-          
+          menuButton.setAttribute("aria-expanded", "false");
+
           // Scroll to the target element
           targetElement.scrollIntoView({ behavior: "smooth" });
         }
@@ -202,14 +203,14 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     const isClickInsideMenu =
       hamburgerMenu.contains(event.target) || menuItems.contains(event.target);
-    
+
     if (!isClickInsideMenu) {
       hamburgerMenu.classList.remove("active");
       menuItems.classList.remove("active");
-      
+
       // Update ARIA state when closing menu
-      const menuButton = hamburgerMenu.querySelector('a');
-      menuButton.setAttribute('aria-expanded', 'false');
+      const menuButton = hamburgerMenu.querySelector("a");
+      menuButton.setAttribute("aria-expanded", "false");
     }
   });
 
@@ -226,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
   checkScrollPosition();
 
   // Listen for the scroll event on the window and update the scroll position accordingly
-  window.addEventListener("scroll", checkScrollPosition);
+  window.addEventListener("scroll", checkScrollPosition, { passive: true });
 
   // Lock scroll immediately when page loads
   document.body.classList.add("lock-scroll");
@@ -245,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
           duration: 3.5,
           ease: "power3.out",
         },
-        "1"
+        "1",
       );
     });
 
@@ -255,12 +256,13 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       y:
         window.innerHeight -
-        document.querySelector(".text div:last-child").getBoundingClientRect().top +
+        document.querySelector(".text div:last-child").getBoundingClientRect()
+          .top +
         200,
       duration: 2,
       opacity: 0,
     },
-    "2.5"
+    "2.5",
   );
 
   // Animation for ".text div:first-child" (Rutvij)
@@ -271,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
       opacity: 0,
       duration: 1.5,
     },
-    "3"
+    "3",
   );
 
   // Animation for ".hide"
@@ -282,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 1.5,
       ease: "power3.out",
     },
-    "3"
+    "3",
   );
 
   // After all main animations complete, show the rest of the sections
@@ -655,7 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
           start: "top 85%",
           toggleActions: "play none none reverse",
         },
-      }
+      },
     );
   });
 
@@ -735,10 +737,10 @@ document.addEventListener("DOMContentLoaded", function () {
     [card, logo].forEach((el) => {
       if (!el) return;
       ["mouseenter", "focus"].forEach((evt) =>
-        el.addEventListener(evt, onEnter)
+        el.addEventListener(evt, onEnter),
       );
       ["mouseleave", "blur"].forEach((evt) =>
-        el.addEventListener(evt, onLeave)
+        el.addEventListener(evt, onLeave),
       );
     });
 
@@ -1092,7 +1094,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     observer.observe(projectsSection);
@@ -1185,193 +1187,456 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
 
-  // Security: Input sanitization function
-  function sanitizeInput(input) {
-    return input
-      .replace(/[<>]/g, '') // Remove potential HTML tags
-      .replace(/javascript:/gi, '') // Remove javascript: protocol
-      .replace(/on\w+=/gi, '') // Remove event handlers
-      .trim();
+  // Normalize user input without stripping legitimate names or message punctuation.
+  // Server-side validation remains the actual security boundary.
+  function normalizeInput(input) {
+    return input.replace(/\r\n?/g, "\n").trim();
   }
 
-  // Security: Rate limiting (prevent spam)
-  let lastSubmissionTime = 0;
-  const SUBMISSION_COOLDOWN = 30000; // 30 seconds
-  let countdownInterval = null;
+  // ------------------------------------------------------------
+  // Submission state
+  // ------------------------------------------------------------
 
-  // Function to update countdown display
-  function updateCountdown() {
+  // The cooldown begins only after a successful Formspree submission.
+  let lastSubmissionTime = 0;
+
+  const SUBMISSION_COOLDOWN = 30000; // 30 seconds
+
+  // Keep the success confirmation visible before replacing it
+  // with the cooldown countdown.
+  const SUCCESS_DISPLAY_TIME = 3000; // 3 seconds
+
+  let countdownInterval = null;
+  let successDisplayTimeout = null;
+  let isSubmitting = false;
+
+  // ------------------------------------------------------------
+  // Submit button state
+  // ------------------------------------------------------------
+
+  function setSubmitButtonState(disabled) {
+    const submitBtn = contactForm?.querySelector(".send-btn");
+
+    if (!submitBtn) return;
+
+    submitBtn.disabled = disabled;
+    submitBtn.style.opacity = disabled ? "0.5" : "1";
+    submitBtn.style.cursor = disabled ? "not-allowed" : "pointer";
+  }
+
+  // ------------------------------------------------------------
+  // Status message helpers
+  // ------------------------------------------------------------
+
+  function showStatus(message, color = "#00fff5") {
+    if (!formStatus) return;
+
+    // Kill any previous GSAP animation affecting opacity.
+    if (typeof gsap !== "undefined") {
+      gsap.killTweensOf(formStatus);
+    }
+
+    formStatus.textContent = message;
+    formStatus.style.color = color;
+    formStatus.style.opacity = 1;
+  }
+
+  function fadeStatusOut(delay = 5000) {
+    if (!formStatus || typeof gsap === "undefined") return;
+
+    gsap.killTweensOf(formStatus);
+
+    gsap.to(formStatus, {
+      opacity: 0,
+      duration: 1,
+      delay,
+      ease: "power2.inOut",
+    });
+  }
+
+  // ------------------------------------------------------------
+  // Cooldown countdown
+  // ------------------------------------------------------------
+
+  /**
+   * Updates the cooldown countdown.
+   *
+   * IMPORTANT:
+   * This function only changes the visible message when the
+   * success-confirmation period has finished.
+   */
+  function updateCountdown(showMessage = true) {
+    if (!lastSubmissionTime) return;
+
     const currentTime = Date.now();
-    const timeSinceLastSubmission = currentTime - lastSubmissionTime;
-    const remainingTime = SUBMISSION_COOLDOWN - timeSinceLastSubmission;
+    const elapsed = currentTime - lastSubmissionTime;
+    const remainingTime = SUBMISSION_COOLDOWN - elapsed;
 
     if (remainingTime > 0) {
       const seconds = Math.ceil(remainingTime / 1000);
-      formStatus.textContent = `Please wait ${seconds}s before next submission`;
-      formStatus.style.color = "#ffa500";
-      formStatus.style.opacity = 1;
-      
-      // Disable submit button
-      const submitBtn = contactForm.querySelector('.send-btn');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.5';
-        submitBtn.style.cursor = 'not-allowed';
+
+      if (showMessage) {
+        showStatus(
+          `Signal received — thank you! You can submit next after ${seconds}s.`,
+          "#ffa500",
+        );
       }
-    } else {
-      // Clear countdown and re-enable form
+
+      setSubmitButtonState(true);
+      return;
+    }
+
+    // ----------------------------------------------------------
+    // Cooldown finished
+    // ----------------------------------------------------------
+
+    clearInterval(countdownInterval);
+    countdownInterval = null;
+
+    lastSubmissionTime = 0;
+
+    setSubmitButtonState(false);
+
+    showStatus(
+      "Transmission channel ready — you can send another message.",
+      "#00fff5",
+    );
+
+    fadeStatusOut(5000);
+  }
+
+  /**
+   * Starts the cooldown immediately after a successful submission.
+   *
+   * The timer starts internally right away, but the success message
+   * remains visually dominant for SUCCESS_DISPLAY_TIME.
+   */
+  function startCountdown() {
+    if (countdownInterval) {
       clearInterval(countdownInterval);
-      countdownInterval = null;
-      formStatus.style.opacity = 0;
-      
-      const submitBtn = contactForm.querySelector('.send-btn');
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
+    }
+
+    if (successDisplayTimeout) {
+      clearTimeout(successDisplayTimeout);
+    }
+
+    // The cooldown is already active internally.
+    setSubmitButtonState(true);
+
+    // IMPORTANT:
+    // Do NOT call updateCountdown() immediately here.
+    //
+    // That was the original UI-state bug because updateCountdown()
+    // immediately replaced "Signal received — thank you!".
+    successDisplayTimeout = setTimeout(() => {
+      successDisplayTimeout = null;
+
+      // If the cooldown has already expired for some reason,
+      // finish normally.
+      if (Date.now() - lastSubmissionTime >= SUBMISSION_COOLDOWN) {
+        updateCountdown(true);
+        return;
       }
+
+      // Now that the success message has had time to remain visible,
+      // switch to the cooldown message.
+      updateCountdown(true);
+
+      countdownInterval = setInterval(() => {
+        updateCountdown(true);
+      }, 1000);
+    }, SUCCESS_DISPLAY_TIME);
+  }
+
+  // ------------------------------------------------------------
+  // Detailed server-error messages
+  // ------------------------------------------------------------
+
+  function getSubmissionErrorMessage(status) {
+    switch (status) {
+      case 400:
+        return {
+          message:
+            "Submission could not be accepted. One or more details sent by the form were not valid. Please review your name, email address, and message, then try again.",
+          color: "#fa3174ff",
+        };
+
+      case 422:
+        return {
+          message:
+            "The receiving service could not process your message. Please check that your information is complete and correctly formatted, then try again.",
+          color: "#fa3174ff",
+        };
+
+      case 403:
+        return {
+          message:
+            "The receiving service refused this submission. This is usually a configuration or permission issue rather than a problem with your message. Please contact me directly by email instead.",
+          color: "#fa3174ff",
+        };
+
+      case 404:
+        return {
+          message:
+            "The message destination could not be found. The contact form may be temporarily misconfigured. Please contact me directly by email.",
+          color: "#fa3174ff",
+        };
+
+      case 429:
+        return {
+          message:
+            "Too many transmission attempts were detected. Please wait a moment before trying again.",
+          color: "#ffa500",
+        };
+
+      case 500:
+      case 502:
+      case 503:
+      case 504:
+        return {
+          message:
+            "The message service is temporarily unavailable. Your message was not confirmed as delivered. Please try again in a little while or contact me directly by email.",
+          color: "#fa3174ff",
+        };
+
+      default:
+        return {
+          message: `The message could not be transmitted (server response ${status}). Your message was not confirmed as delivered. Please try again or contact me directly by email.`,
+          color: "#fa3174ff",
+        };
     }
   }
 
-  // Start countdown timer
-  function startCountdown() {
-    if (countdownInterval) clearInterval(countdownInterval);
-    countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-  }
+  // ------------------------------------------------------------
+  // Contact form
+  // ------------------------------------------------------------
 
   if (contactForm && formStatus) {
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      // Security: Rate limiting check
-      const currentTime = Date.now();
-      if (currentTime - lastSubmissionTime < SUBMISSION_COOLDOWN) {
-        // Don't show temporary message, countdown is already running
+      // Prevent duplicate submissions while Formspree is processing.
+      if (isSubmitting) return;
+
+      // ----------------------------------------------------------
+      // Check cooldown
+      // ----------------------------------------------------------
+
+      if (
+        lastSubmissionTime &&
+        Date.now() - lastSubmissionTime < SUBMISSION_COOLDOWN
+      ) {
+        const remainingSeconds = Math.ceil(
+          (SUBMISSION_COOLDOWN - (Date.now() - lastSubmissionTime)) / 1000,
+        );
+
+        showStatus(
+          `Signal already received. You can submit another message after ${remainingSeconds}s.`,
+          "#ffa500",
+        );
+
+        setSubmitButtonState(true);
+
         return;
       }
 
-      // Get and sanitize form inputs
+      // ----------------------------------------------------------
+      // Get form inputs
+      // ----------------------------------------------------------
+
       const nameInput = contactForm.querySelector('input[name="name"]');
+
       const emailInput = contactForm.querySelector('input[name="email"]');
-      const messageInput = contactForm.querySelector('textarea[name="message"]');
 
-      const nameValue = sanitizeInput(nameInput.value);
-      const emailValue = sanitizeInput(emailInput.value);
-      const messageValue = sanitizeInput(messageInput.value);
+      const messageInput = contactForm.querySelector(
+        'textarea[name="message"]',
+      );
 
-      // Enhanced validation
-      const namePattern = /^[A-Za-z\s\-\.]{2,100}$/;
-      const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-      const messagePattern = /^[\w\s\-\.\,\!\?\(\)]{10,1000}$/;
+      // ----------------------------------------------------------
+      // Normalize values
+      // ----------------------------------------------------------
 
-      // Validate name
+      const nameValue = normalizeInput(nameInput.value).replace(/\s+/g, " ");
+
+      const emailValue = normalizeInput(emailInput.value);
+      const messageValue = normalizeInput(messageInput.value);
+
+      // ----------------------------------------------------------
+      // Client-side validation
+      // ----------------------------------------------------------
+
+      const namePattern = /^[\p{L}\p{M}\s.'-]{2,100}$/u;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
       if (!namePattern.test(nameValue)) {
-        showValidationError(nameInput, "Invalid name format — use only letters, spaces, hyphens, and dots (2-100 chars).");
+        showValidationError(
+          nameInput,
+          "Name signal invalid — please enter a real name using 2–100 characters.",
+        );
         return;
       }
 
-      // Validate email
       if (!emailPattern.test(emailValue)) {
-        showValidationError(emailInput, "Invalid frequency detected — enter a valid email signal.");
+        showValidationError(
+          emailInput,
+          "Email signal invalid — please enter a valid email address so I can reply.",
+        );
         return;
       }
 
-      // Validate message
-      if (!messagePattern.test(messageValue)) {
-        showValidationError(messageInput, "Message contains invalid characters or wrong length (10-1000 chars).");
+      if (messageValue.length < 10 || messageValue.length > 1000) {
+        showValidationError(
+          messageInput,
+          "Message signal incomplete — please enter between 10 and 1000 characters.",
+        );
         return;
       }
 
-      // Security: Check for suspicious patterns
-      const suspiciousPatterns = [
-        /<script/i, /javascript:/i, /on\w+=/i, /eval\(/i, /document\./i,
-        /window\./i, /alert\(/i, /confirm\(/i, /prompt\(/i
-      ];
+      // ----------------------------------------------------------
+      // Begin transmission
+      // ----------------------------------------------------------
 
-      const allText = nameValue + ' ' + emailValue + ' ' + messageValue;
-      if (suspiciousPatterns.some(pattern => pattern.test(allText))) {
-        showValidationError(messageInput, "Security violation detected — message blocked.");
-        return;
+      isSubmitting = true;
+      setSubmitButtonState(true);
+
+      showStatus("Transmitting signal...", "#00fff5");
+
+      if (typeof gsap !== "undefined") {
+        gsap.to(formStatus, {
+          opacity: 1,
+          duration: 0.6,
+          ease: "power2.out",
+        });
       }
 
-      // Show loading state
-      formStatus.style.opacity = 0;
-      formStatus.style.color = "#00fff5";
-      formStatus.textContent = "Transmitting signal...";
-      gsap.to(formStatus, { opacity: 1, duration: 0.6, ease: "power2.out" });
-
-      // Update rate limit
-      lastSubmissionTime = currentTime;
-      
-      // Set sanitized values back to form inputs
+      // Set normalized values back into the form.
       nameInput.value = nameValue;
       emailInput.value = emailValue;
       messageInput.value = messageValue;
-      
+
       try {
-        // Create form data
+        // --------------------------------------------------------
+        // Create Formspree request
+        // --------------------------------------------------------
+
         const formData = new FormData();
-        formData.append('name', nameValue);
-        formData.append('email', emailValue);
-        formData.append('message', messageValue);
+
+        formData.append("name", nameValue);
+        formData.append("email", emailValue);
+        formData.append("message", messageValue);
 
         const response = await fetch(contactForm.action, {
           method: "POST",
           body: formData,
-          headers: { 
-            Accept: "application/json"
+          headers: {
+            Accept: "application/json",
           },
         });
 
-        if (response.ok) {
-          formStatus.textContent = "Signal received — thank you!";
-          formStatus.style.color = "#00ffc3";
-          contactForm.reset();
-          lastSubmissionTime = currentTime; // Update rate limit
-          
-          // Start countdown timer
-          setTimeout(() => {
-            startCountdown();
-          }, 3000); // Start countdown after success message fades
+        // --------------------------------------------------------
+        // SUCCESS
+        // --------------------------------------------------------
 
+        if (response.ok) {
+          /*
+           * IMPORTANT STATE ORDER
+           *
+           * 1. Show success confirmation.
+           * 2. Reset form.
+           * 3. Start cooldown internally.
+           * 4. Keep success confirmation visible for 3 seconds.
+           * 5. Only then show cooldown countdown.
+           */
+
+          showStatus("Signal received — thank you!", "#00ffc3");
+
+          contactForm.reset();
+
+          // The cooldown begins NOW.
+          lastSubmissionTime = Date.now();
+
+          // But startCountdown() deliberately does not overwrite
+          // the success message immediately.
+          startCountdown();
+
+          // Trigger existing visual wave effect.
           if (typeof wave !== "undefined") {
-            wave = { radius: 0, opacity: 0.7 };
+            wave = {
+              radius: 0,
+              opacity: 0.7,
+            };
           }
-        } else {
-          const errorData = await response.json().catch(() => ({}));
-          
-          if (response.status === 400) {
-            formStatus.textContent = "Form validation failed. Please check your inputs.";
-          } else if (response.status === 403) {
-            formStatus.textContent = "Form submission blocked. Please contact directly via email.";
-          } else {
-            formStatus.textContent = `Transmission failed (${response.status}). Try again.`;
-          }
-          formStatus.style.color = "#fa3174ff";
+
+          return;
         }
+
+        // --------------------------------------------------------
+        // SERVER ERROR
+        // --------------------------------------------------------
+
+        const errorInfo = getSubmissionErrorMessage(response.status);
+
+        showStatus(errorInfo.message, errorInfo.color);
+
+        // Helpful console information for development/debugging.
+        console.error(
+          `Formspree submission failed with HTTP ${response.status}.`,
+        );
       } catch (error) {
-        formStatus.textContent = "Error sending message. Please contact directly via email.";
-        formStatus.style.color = "#ff0055";
+        // --------------------------------------------------------
+        // NETWORK / FETCH ERROR
+        // --------------------------------------------------------
+
+        console.error("Contact form transmission error:", error);
+
+        showStatus(
+          "Transmission could not reach the message service. Please check your internet connection and try again. If the problem continues, contact me directly by email.",
+          "#ff0055",
+        );
+      } finally {
+        isSubmitting = false;
+
+        /*
+         * If submission failed, the button becomes usable again.
+         *
+         * If submission succeeded, lastSubmissionTime is non-zero,
+         * so the cooldown keeps the button disabled.
+         */
+        if (
+          !lastSubmissionTime ||
+          Date.now() - lastSubmissionTime >= SUBMISSION_COOLDOWN
+        ) {
+          setSubmitButtonState(false);
+        }
       }
 
-      // Fade out smoothly after 7 seconds
-      gsap.to(formStatus, {
-        opacity: 0,
-        duration: 1,
-        delay: 7,
-        ease: "power2.inOut",
-      });
+      // ----------------------------------------------------------
+      // Fade unsuccessful status messages
+      // ----------------------------------------------------------
+
+      if (!lastSubmissionTime) {
+        fadeStatusOut(7000);
+      }
     });
 
-    // Helper function for validation errors
-    function showValidationError(inputElement, message) {
-      formStatus.textContent = message;
-      formStatus.style.color = "#fa3174ff";
-      gsap.to(formStatus, { opacity: 1, duration: 0.5, ease: "power2.out" });
-      gsap.to(formStatus, { opacity: 0, duration: 1, delay: 5, ease: "power2.inOut" });
+    // ------------------------------------------------------------
+    // Client-side validation feedback
+    // ------------------------------------------------------------
 
-      // Visual feedback on input
+    function showValidationError(inputElement, message) {
+      showStatus(message, "#fa3174ff");
+
+      if (typeof gsap !== "undefined") {
+        gsap.to(formStatus, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      }
+
+      fadeStatusOut(5000);
+
+      // Highlight the problematic input.
       inputElement.style.borderColor = "#fa3174ff";
       inputElement.style.boxShadow = "0 0 12px rgba(250, 49, 116, 0.5)";
 

@@ -13,7 +13,7 @@
 
 Professional portfolio showcasing expertise in **Python**, **Java**, **React**, **AWS**, **Machine Learning**, and modern web development.
 
-The portfolio features interactive parallax animations, responsive layouts, optimized assets, client-side validation, secure form submission, accessibility considerations, and security-focused configuration.
+The portfolio features interactive parallax animations, responsive layouts, modern image formats, client-side validation, Formspree-powered form submission, accessibility considerations, and security-focused configuration.
 
 **🌐 Live Portfolio:** https://rutvij01.github.io/Live/portfolio/
 
@@ -32,17 +32,19 @@ The portfolio features interactive parallax animations, responsive layouts, opti
 
 ### 📧 Smart Contact Form
 
-- **Client-Side Cooldown** - Helps reduce repeated submissions
+- **Client-Side Cooldown** - Helps reduce repeated submissions after successful transmission
 - **Real-Time Validation** - Immediate feedback with custom validation messages
 - **Formspree Integration** - External service for contact-form processing
-- **Custom Success Feedback** - User-friendly submission status
-- **Button State Management** - Helps prevent repeated submissions during cooldown periods
+- **Custom Success Feedback** - Displays a clear confirmation after successful submission
+- **Success Message Persistence** - Keeps the success confirmation visible before showing the cooldown countdown
+- **Button State Management** - Prevents duplicate submissions while a request is processing and during the cooldown period
+- **Detailed Error Feedback** - Provides understandable messages for validation, network, and server-side submission failures
 
 ### 🔒 Security & Performance
 
-- **Optimized Images** - Modern image formats and appropriate fallbacks where applicable
+- **Modern Image Formats** - WebP assets with PNG/JPEG fallbacks where applicable
 - **Content Security Policy** - CSP configuration for controlled resource loading
-- **Input Validation & Sanitization** - Client-side handling of submitted form data
+- **Input Validation & Normalization** - Client-side validation and normalization before submission
 - **HTTPS** - Live portfolio served through HTTPS
 - **Subresource Integrity** - Integrity protection for supported external resources
 - **FOUC Prevention** - Loading strategy designed to reduce flash of unstyled content
@@ -80,12 +82,12 @@ Lazy Loading   - Deferred loading where applicable
 ### Security
 
 ```text
-CSP            - Content Security Policy configuration
-Formspree      - External form-processing service
-Rate Limiting  - Client-side spam and abuse mitigation
-Validation     - Client-side input validation and sanitization
-SRI            - Subresource Integrity for supported external resources
-HTTPS          - Encrypted transport through the live HTTPS site
+CSP                  - Content Security Policy configuration
+Formspree            - External form-processing service
+Submission Cooldown  - Client-side protection against accidental repeated submissions
+Validation           - Client-side input validation and normalization
+SRI                  - Subresource Integrity for supported external resources
+HTTPS                - Encrypted transport through the live HTTPS site
 ```
 
 > Browser-side security controls can be bypassed and should not be interpreted as absolute protection against attacks.
@@ -153,19 +155,21 @@ portfolio/
 - **Terminal Interface** - Interactive project presentation
 - **Typewriter Effects** - Animated project content
 - **Dynamic Windows** - Expandable project details
-- **Responsive Layout** - Optimized presentation across screen sizes
+- **Responsive Layout** - Optimized presentation across devices
 
 ### 🏆 Certificates
 
 - **Achievement Gallery** - Professional certifications
-- **Optimized Images** - Modern image formats and fallbacks
+- **Modern Image Formats** - WebP assets with fallbacks where applicable
 - **Hover Effects** - Interactive visual feedback
 - **Responsive Grid** - Adaptive certificate presentation
 
 ### 📞 Contact
 
-- **Smart Contact Form** - Client-side validation and cooldown
+- **Smart Contact Form** - Client-side validation and post-success cooldown
 - **Real-Time Validation** - Immediate user feedback
+- **Submission Confirmation** - Clear success feedback after Formspree acceptance
+- **Detailed Error Handling** - Understandable feedback for failed transmissions
 - **Form Security** - Input validation and controlled submission
 - **Social Links** - GitHub, LinkedIn, and email contact options
 
@@ -196,9 +200,12 @@ portfolio/
 ### Form Security
 
 - **Input Validation** - Client-side validation of submitted fields
-- **Input Sanitization** - Client-side handling of potentially unsafe input
-- **Rate Limiting** - Client-side submission cooldown
-- **Pattern Validation** - Detection of invalid or suspicious input patterns
+- **Input Normalization** - Client-side normalization of submitted fields
+- **Submission Cooldown** - Client-side cooldown begins only after a successful submission
+- **Success Confirmation** - Successful submissions display confirmation before the cooldown countdown
+- **Duplicate Submission Protection** - Submission controls prevent repeated requests while a transmission is in progress
+- **Field Validation** - Client-side length and format checks before submission
+- **Error Handling** - User-friendly feedback for validation, network, and server-side submission failures
 - **HTTPS** - Secure communication when accessed through the live HTTPS site
 - **Formspree** - External form-processing service
 
@@ -264,7 +271,7 @@ The file provides the security reporting contact, preferred language, policy loc
 The portfolio is designed for modern desktop and mobile browsers, including:
 
 | Browser           | Support      |
-| ----------------- | ------------ |
+| :---------------- | :----------- |
 | **Chrome**        | ✅ Supported |
 | **Firefox**       | ✅ Supported |
 | **Safari**        | ✅ Supported |
@@ -351,8 +358,8 @@ The portfolio uses security-focused configuration and practices appropriate for 
 - Controlled external resource loading
 - Subresource Integrity where applicable
 - Client-side validation
-- Client-side rate limiting
-- Secure external form processing through Formspree
+- Client-side submission cooldown
+- Form processing through Formspree
 - Responsible security disclosure process
 - Standardized `security.txt` contact information
 
@@ -374,11 +381,11 @@ For security reporting, please avoid sending passwords, authentication tokens, p
 
 - **📅 Development:** Ongoing development and optimization
 - **📝 Source Code:** HTML, CSS, and JavaScript
-- **🖼️ Images:** Optimized portfolio visual assets
-- **⚡ Performance:** Image and resource optimization
-- **♿ Accessibility:** Accessibility-focused implementation
+- **🖼️ Images:** WebP assets with fallback formats where applicable
+- **⚡ Performance:** Preloading and resource-loading optimizations
+- **♿ Accessibility:** Keyboard focus, labels, semantic structure, and accessible status messaging
 - **🔒 Security:** Multiple security and defensive configuration measures
-- **🌐 Browser Testing:** Desktop and mobile browser testing
+- **🌐 Browser Support:** Designed for modern desktop and mobile browsers
 - **📱 Responsive:** Mobile, tablet, and desktop layouts
 
 > Project details and implementation may change as the portfolio continues to evolve.
@@ -389,7 +396,7 @@ For security reporting, please avoid sending passwords, authentication tokens, p
 
 - ✅ **Professional Showcase** - Demonstrates full-stack and data-science capabilities
 - ✅ **Interactive Experience** - Advanced animations and portfolio interactions
-- ✅ **Performance Focused** - Optimized images and resource loading
+- ✅ **Performance Focused** - Preloading and resource-loading optimizations
 - ✅ **Security Focused** - CSP, validation, HTTPS, SRI, and responsible disclosure
 - ✅ **Accessibility Focused** - Semantic structure, keyboard navigation, and accessible interactions
 - ✅ **SEO Optimized** - Structured metadata, canonical URL, robots.txt, and XML sitemap
@@ -402,36 +409,7 @@ For security reporting, please avoid sending passwords, authentication tokens, p
 
 ## 📜 Legal & Security Documents
 
-| Document                                 | Version / Status | Purpose                                                               |
-| ---------------------------------------- | ---------------- | --------------------------------------------------------------------- |
-| [Terms of Use](terms-of-use.html)        | **v2.0**         | Website usage, intellectual property, permissions, and legal terms    |
-| [Security Policy](security-policy.html)  | **v2.0**         | Responsible vulnerability disclosure and security research guidelines |
-| [Security.txt](.well-known/security.txt) | **Current**      | Standardized security contact and policy information                  |
-| [Robots.txt](robots.txt)                 | **Current**      | Search-engine crawler instructions                                    |
-| [Sitemap.xml](sitemap.xml)               | **Current**      | Public-page search-engine discovery                                   |
-
----
-
-## 📌 Important Notes
-
-- This repository is a personal portfolio project.
-- Third-party materials remain subject to their respective licenses and terms.
-- The Terms of Use do not grant ownership or a general license to third-party materials.
-- Security controls implemented in client-side code should not be interpreted as absolute protection against all attacks.
-- `robots.txt` provides crawler guidance and is not an access-control or security mechanism.
-- `sitemap.xml` is intended to identify public pages for search-engine discovery.
-- Security researchers should follow the dedicated Security Policy before conducting vulnerability testing.
-- No bug bounty, monetary reward, employment opportunity, or specific response time is guaranteed for security reports.
-- The portfolio and its documentation may be updated as the project evolves.
-
----
-
-## 📄 Version Information
-
-**Last Updated:** October 5, 2026
-**Version:** 2.0
-**Status:** Production Ready
-
----
-
-**Built with ❤️ and meticulous attention to detail by Rutvij Bhatt**
+| Document                                | Version / Status | Purpose                                                            |
+| :-------------------------------------- | :--------------- | :----------------------------------------------------------------- |
+| [Terms of Use](terms-of-use.html)       | **v2.0**         | Website usage, intellectual property, permissions, and legal terms |
+| [Security Policy](security-policy.html) | **v2.0**         | Responsibl                                                         |
